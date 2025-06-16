@@ -36,12 +36,14 @@ const webhookRoutes = require('./routes/webhook');
 const appointmentRoutes = require('./routes/appointments');
 const elevenLabsWebhookRoutes = require('./routes/elevenlabs-webhook');
 const twilioWebhookRoutes = require('./routes/twilio-webhook');
+const debugRoutes = require('./routes/debug-email');
 
 // Use routes
 app.use('/webhook', webhookRoutes);
 app.use('/appointments', appointmentRoutes);
 app.use('/webhook/elevenlabs', elevenLabsWebhookRoutes);
 app.use('/webhook/twilio', twilioWebhookRoutes);
+app.use('/debug', debugRoutes);
 
 app.get('/', (req, res) => {
   res.send('Capital Crusader BDC server is running!');
