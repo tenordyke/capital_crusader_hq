@@ -10,6 +10,7 @@ import ExitIntentPopup from '@/components/layout/ExitIntentPopup';
 
 const HeroSection = lazy(() => import('@/components/sections/HeroSection'));
 const TrustBarSection = lazy(() => import('@/components/sections/TrustBarSection'));
+const AboutTroySection = lazy(() => import('@/components/sections/AboutTroySection'));
 const WhyShopSection = lazy(() => import('@/components/sections/WhyShopSection'));
 const AboveTheFoldCTASection = lazy(() => import('@/components/sections/AboveTheFoldCTASection'));
 const CurrentOffersSection = lazy(() => import('@/components/sections/CurrentOffersSection'));
@@ -164,6 +165,10 @@ function App() {
             staggerContainer={staggerContainer} 
           />
           <TrustBarSection fadeInUp={fadeInUp} />
+          <AboutTroySection
+            fadeInUp={fadeInUp}
+            staggerContainer={staggerContainer}
+          />
           <WhyShopSection
             fadeInUp={fadeInUp}
             staggerContainer={staggerContainer}

@@ -206,4 +206,130 @@
     }
   }
 
+  /* Enhanced visual effects for perfect website */
+  .hero-image-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.4)) 
+            drop-shadow(0 0 40px rgba(255, 102, 0, 0.3))
+            drop-shadow(0 0 60px rgba(184, 0, 0, 0.2));
+  }
+
+  .floating-element {
+    animation: float-enhanced 6s ease-in-out infinite;
+  }
+
+  @keyframes float-enhanced {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+      filter: brightness(1);
+    }
+    25% { 
+      transform: translateY(-10px) rotate(5deg);
+      filter: brightness(1.1);
+    }
+    50% { 
+      transform: translateY(-15px) rotate(0deg);
+      filter: brightness(1.2);
+    }
+    75% { 
+      transform: translateY(-10px) rotate(-5deg);
+      filter: brightness(1.1);
+    }
+  }
+
+  .sparkle-animation {
+    animation: sparkle 3s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { 
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1) rotate(180deg);
+    }
+  }
+
+  .enhanced-glow {
+    box-shadow: 
+      0 0 20px rgba(255, 204, 0, 0.3),
+      0 0 40px rgba(255, 102, 0, 0.2),
+      0 0 60px rgba(184, 0, 0, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  .enhanced-glow:hover {
+    box-shadow: 
+      0 0 30px rgba(255, 204, 0, 0.5),
+      0 0 60px rgba(255, 102, 0, 0.3),
+      0 0 90px rgba(184, 0, 0, 0.2),
+      inset 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+
+  .perfect-gradient-text {
+    background: linear-gradient(
+      45deg,
+      #ffd700 0%,
+      #ffcc00 25%,
+      #ff6600 50%,
+      #b80000 75%,
+      #ffd700 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .button-perfect-hover {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .button-perfect-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .button-perfect-hover:hover::before {
+    left: 100%;
+  }
+
+  .card-perfect-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-perfect-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(255, 204, 0, 0.2);
+  }
+
+  .text-perfect-shadow {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 10px rgba(255, 204, 0, 0.3),
+      0 0 20px rgba(255, 102, 0, 0.2);
+  }
+
 }

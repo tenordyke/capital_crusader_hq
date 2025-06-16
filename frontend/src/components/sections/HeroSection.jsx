@@ -138,43 +138,90 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
           </h1>
         </motion.div>
 
-        {/* Enhanced Hero Image */}
+        {/* Enhanced Hero Image with Perfect Visual Effects */}
         <motion.div variants={imageVariants} className="mb-10 sm:mb-12">
           <div className="relative max-w-3xl mx-auto group">
-            {/* Glow effect behind image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-crusaderYellow/30 via-crusaderOrange/20 to-crusaderRed/30 rounded-3xl blur-2xl scale-105 opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+            {/* Multi-layered glow effects */}
+            <div className="absolute inset-0 bg-gradient-to-r from-crusaderYellow/40 via-crusaderOrange/30 to-crusaderRed/40 rounded-3xl blur-3xl scale-110 opacity-70 group-hover:opacity-90 transition-all duration-700 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-red-600/25 rounded-3xl blur-xl scale-105 opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
             
-            <img 
-              src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250615_200233.png"
-              alt="Troy Nordyke - Capital Crusader, your Regina auto superhero with business card"
-              className="relative w-full h-auto rounded-3xl shadow-2xl transform group-hover:scale-105 transition-all duration-500 border-4 border-crusaderYellow/30"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
+            {/* Main image with enhanced effects */}
+            <div className="relative overflow-hidden rounded-3xl border-4 border-crusaderYellow/50 group-hover:border-crusaderYellow/80 transition-all duration-500 shadow-2xl">
+              <img 
+                src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250615_200233.png"
+                alt="Troy Nordyke - Capital Crusader, your Regina auto superhero with business card"
+                className="relative w-full h-auto transform group-hover:scale-105 transition-all duration-700 filter group-hover:brightness-110"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+              
+              {/* Overlay gradient for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            
+            {/* Enhanced floating elements */}
+            <motion.div 
+              className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-crusaderYellow to-yellow-300 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
+              animate={{ 
+                y: [-8, 8, -8],
+                rotate: [0, 15, -15, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Star className="w-8 h-8 text-black drop-shadow-lg" />
+            </motion.div>
+            
+            <motion.div 
+              className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-crusaderOrange to-orange-400 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
+              animate={{ 
+                y: [8, -8, 8],
+                rotate: [0, -15, 15, 0],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+            >
+              <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+            </motion.div>
+            
+            {/* Additional decorative elements */}
+            <motion.div 
+              className="absolute top-1/4 -left-8 w-8 h-8 bg-crusaderRed/80 rounded-full shadow-lg"
+              animate={{ 
+                x: [-5, 5, -5],
+                opacity: [0.6, 1, 0.6]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
             
-            {/* Floating elements around image */}
             <motion.div 
-              className="absolute -top-4 -right-4 w-12 h-12 bg-crusaderYellow rounded-full flex items-center justify-center shadow-lg"
+              className="absolute bottom-1/4 -right-8 w-10 h-10 bg-crusaderYellow/70 rounded-full shadow-lg"
               animate={{ 
-                y: [-5, 5, -5],
-                rotate: [0, 10, -10, 0]
+                x: [5, -5, 5],
+                opacity: [0.7, 1, 0.7]
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Star className="w-6 h-6 text-black" />
-            </motion.div>
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            />
+            
+            {/* Sparkle effects */}
+            <motion.div 
+              className="absolute top-8 left-8 w-2 h-2 bg-white rounded-full"
+              animate={{ 
+                scale: [0, 1, 0],
+                opacity: [0, 1, 0]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            />
             
             <motion.div 
-              className="absolute -bottom-4 -left-4 w-12 h-12 bg-crusaderOrange rounded-full flex items-center justify-center shadow-lg"
+              className="absolute bottom-12 right-12 w-3 h-3 bg-crusaderYellow rounded-full"
               animate={{ 
-                y: [5, -5, 5],
-                rotate: [0, -10, 10, 0]
+                scale: [0, 1, 0],
+                opacity: [0, 1, 0]
               }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            >
-              <Shield className="w-6 h-6 text-white" />
-            </motion.div>
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            />
           </div>
         </motion.div>
 

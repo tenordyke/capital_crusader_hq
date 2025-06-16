@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
-require('dotenv').config({ path: '../../.env' });
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 
 // Handle node-fetch v3 ESM import
 const fetchModule = fetch.default || fetch;

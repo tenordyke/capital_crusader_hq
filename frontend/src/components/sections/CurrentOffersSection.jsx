@@ -89,25 +89,27 @@ const CurrentOffersSection = ({ fadeInUp, staggerContainer }) => {
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           variants={fadeInUp}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
+          {/* Clean Badge */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", duration: 0.8 }}
-            className="inline-flex items-center gap-2 bg-crusaderRed text-white px-6 py-3 rounded-full font-black text-lg mb-6"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-crusaderRed to-orange-600 text-white px-8 py-4 rounded-full font-black text-lg mb-8 shadow-2xl"
           >
-            <Flame className="w-6 h-6" />
-            HOT DEALS ENDING SOON
-            <Flame className="w-6 h-6" />
+            <Flame className="w-5 h-5" />
+            <span>LIMITED TIME OFFERS</span>
           </motion.div>
           
-          <h2 id="current-offers-title" className="font-comic text-4xl sm:text-5xl md:text-6xl font-black mb-4 text-white uppercase"
-              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-            Hot Deals HQ
+          {/* Clean Title */}
+          <h2 id="current-offers-title" className="font-comic text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-crusaderYellow uppercase text-outline-black-lg drop-shadow-2xl">
+            Special Offers
           </h2>
-          <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Save thousands on your next vehicle - These deals won't last!
+          
+          {/* Clean Subtitle */}
+          <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto font-semibold leading-relaxed">
+            Exclusive deals from <span className="text-crusaderYellow">The Capital Crusader</span>
           </p>
         </motion.div>
 
@@ -119,9 +121,9 @@ const CurrentOffersSection = ({ fadeInUp, staggerContainer }) => {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className={`group relative rounded-2xl overflow-hidden shadow-2xl 
-                         transition-all duration-300 transform hover:scale-105
-                         ${offer.highlight ? 'ring-4 ring-crusaderYellow ring-offset-4 ring-offset-black' : ''}`}
+              className={`group relative rounded-2xl overflow-hidden shadow-2xl card-perfect-hover
+                         transition-all duration-300 transform
+                         ${offer.highlight ? 'ring-4 ring-crusaderYellow ring-offset-4 ring-offset-black enhanced-glow' : 'hover:scale-105'}`}
             >
               {offer.highlight && (
                 <div className="absolute -top-1 -right-1 z-20">
@@ -131,28 +133,25 @@ const CurrentOffersSection = ({ fadeInUp, staggerContainer }) => {
                 </div>
               )}
               
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={offer.imgSrc} 
-                  alt={offer.altText}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-crusaderRed/20 via-crusaderOrange/30 to-crusaderYellow/20">
+                {/* Enhanced gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-gray-900/40 to-black/60"></div>
                 
-                {/* Savings Badge */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <div className="bg-green-500 text-white px-4 py-2 rounded-lg font-black text-2xl shadow-lg">
-                    {offer.urgency}
+                {/* Icon and Savings Badge Together */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                  <offer.icon className="w-20 h-20 text-crusaderYellow/40" />
+                  <div className="flex items-center gap-2">
+                    <div className="bg-green-500 text-white px-6 py-3 rounded-xl font-black text-xl shadow-2xl">
+                      {offer.urgency}
+                    </div>
+                    <TrendingDown className="w-6 h-6 text-green-400" />
                   </div>
-                  <TrendingDown className="w-6 h-6 text-green-400" />
                 </div>
               </div>
               
               <div className="bg-gray-900 p-6 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="font-comic text-2xl text-crusaderYellow flex-1">{offer.title}</h3>
-                  <offer.icon className="w-8 h-8 text-crusaderYellow flex-shrink-0 ml-2" />
+                <div className="text-center mb-4">
+                  <h3 className="font-comic text-2xl text-crusaderYellow">{offer.title}</h3>
                 </div>
                 
                 <p className="text-gray-300 mb-4">{offer.description}</p>

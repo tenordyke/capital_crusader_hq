@@ -6,7 +6,6 @@ import Layout from '@/components/layout/Layout';
 import { CalendarCheck, Phone, Star, Trophy, DollarSign, Flame, Gift, Zap } from 'lucide-react';
 
 const CurrentOffersSection = lazy(() => import('@/components/sections/CurrentOffersSection'));
-const PricingSection = lazy(() => import('@/components/sections/PricingSection'));
 
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center p-4">
@@ -127,14 +126,9 @@ const OffersPage = () => {
                 </div>
               </motion.div>
 
-              {/* Enhanced Title with Logo */}
+              {/* Clean Title */}
               <motion.div variants={titleVariants} className="mb-8">
-                <div className="flex items-center justify-center gap-6 mb-6">
-                  <img 
-                    src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250616_072055.png"
-                    alt="The Capital Crusader Logo"
-                    className="h-16 sm:h-20 w-auto object-contain filter brightness-125 contrast-110"
-                  />
+                <div className="text-center mb-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-comic font-black uppercase leading-tight">
                     <span className="block text-yellow-400 text-outline-black-lg drop-shadow-2xl">
                       HEROIC DEALS
@@ -207,10 +201,6 @@ const OffersPage = () => {
           </motion.section>
 
           <CurrentOffersSection 
-            fadeInUp={fadeInUp}
-            staggerContainer={staggerContainer}
-          />
-          <PricingSection 
             fadeInUp={fadeInUp}
             staggerContainer={staggerContainer}
           />
