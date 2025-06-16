@@ -193,15 +193,24 @@ const notifyTroy = async (type, data) => {
       </div>
     `;
     
+    // Allow override email for testing
+    const toEmail = process.env.NOTIFICATION_EMAIL || 'drive@capitalcrusader.ca';
+    
     const mailOptions = {
       from: 'Capital Crusader System <drive@capitalcrusader.ca>',
-      to: 'drive@capitalcrusader.ca', // Troy's email
+      to: toEmail,
       subject: subject,
       html: htmlContent
     };
     
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
     console.log(`📨 Notification sent to Troy: ${type}`);
+    console.log('Email send info:', {
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      response: info.response
+    });
     
   } catch (error) {
     console.error('Failed to send notification:', error);
