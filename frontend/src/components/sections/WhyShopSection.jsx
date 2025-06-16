@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { CheckCircle2, XCircle, Award, Car } from 'lucide-react';
+import { CheckCircle2, XCircle, Award, Car, Shield, Star, Zap, Heart, Users, DollarSign } from 'lucide-react';
 
 const WhyShopSection = ({ fadeInUp, staggerContainer }) => {
   const { toast } = useToast();
@@ -22,33 +22,45 @@ const WhyShopSection = ({ fadeInUp, staggerContainer }) => {
   const comparisonData = [
     {
       feature: "Sales Approach",
-      crusaderWay: "Your Ally & Guide",
-      typicalDealership: "Pressure & Sales Quotas",
+      icon: Shield,
+      crusaderWay: "Your Personal Auto Superhero & Trusted Guide",
+      typicalDealership: "High-Pressure Tactics & Monthly Sales Quotas",
+      crusaderColor: "text-blue-400",
     },
     {
       feature: "Pricing Strategy",
-      crusaderWay: "Transparent & Fair Value",
-      typicalDealership: "Hidden Fees & Haggling Games",
+      icon: DollarSign,
+      crusaderWay: "100% Transparent Pricing & Employee Discounts",
+      typicalDealership: "Hidden Fees, Markups & Endless Haggling",
+      crusaderColor: "text-green-400",
     },
     {
       feature: "Vehicle Knowledge",
-      crusaderWay: "Expert Advice, Not Upsells",
-      typicalDealership: "Pushing Specific Inventory",
+      icon: Star,
+      crusaderWay: "Expert Product Specialist with Honest Advice",
+      typicalDealership: "Pushing Whatever's on the Lot This Month",
+      crusaderColor: "text-yellow-400",
     },
     {
       feature: "Test Drive Experience",
-      crusaderWay: "Relaxed, Informative & Fun",
-      typicalDealership: "Rushed & Obligation-Heavy",
+      icon: Zap,
+      crusaderWay: "Relaxed, Educational & Genuinely Fun",
+      typicalDealership: "Rushed 5-Minute Drives with Obligations",
+      crusaderColor: "text-purple-400",
     },
     {
       feature: "Post-Sale Support",
-      crusaderWay: "Continued Heroic Service",
-      typicalDealership: "Often Forgotten Quickly",
+      icon: Heart,
+      crusaderWay: "Lifelong Relationship & Continued Hero Service",
+      typicalDealership: "Good Luck Finding Us After the Sale",
+      crusaderColor: "text-red-400",
     },
     {
       feature: "Community Focus",
-      crusaderWay: "Supporting Regina Locals",
-      typicalDealership: "Corporate Bottom Line",
+      icon: Users,
+      crusaderWay: "Proud Regina Local Supporting Our Community",
+      typicalDealership: "Corporate Chain Focused on Profit Margins",
+      crusaderColor: "text-orange-400",
     },
   ];
 
@@ -82,33 +94,54 @@ const WhyShopSection = ({ fadeInUp, staggerContainer }) => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {comparisonData.map((item, idx) => (
             <motion.div
               key={item.feature}
               variants={cardVariants}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-crusaderYellow/50 transition-all duration-300"
+              className="group bg-gradient-to-br from-gray-800/60 via-gray-900/60 to-black/60 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-700/50 hover:border-yellow-400/60 transition-all duration-300 hover:scale-105 relative overflow-hidden"
             >
-              <h3 className="font-comic text-xl font-bold text-white mb-4 uppercase tracking-wide">
-                {item.feature}
-              </h3>
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="space-y-3">
+              {/* Header with icon */}
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <div className={`p-3 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 ${item.crusaderColor} group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className="w-6 h-6" />
+                </div>
+                <h3 className="font-comic text-xl font-bold text-white uppercase tracking-wide">
+                  {item.feature}
+                </h3>
+              </div>
+              
+              <div className="space-y-4 relative z-10">
                 {/* Crusader Way */}
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <p className="font-semibold text-green-400 text-sm uppercase tracking-wide mb-1">The Crusader Way:</p>
-                    <p className="text-white">{item.crusaderWay}</p>
+                <div className="bg-gradient-to-r from-green-900/30 via-green-800/20 to-green-900/30 rounded-xl p-4 border border-green-500/30">
+                  <div className="flex items-start gap-3">
+                    <div className="p-1 bg-green-500 rounded-full">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-comic font-bold text-green-400 text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                        🦸‍♂️ The Crusader Way
+                      </p>
+                      <p className="text-white font-semibold leading-relaxed">{item.crusaderWay}</p>
+                    </div>
                   </div>
                 </div>
                 
                 {/* Typical Dealership */}
-                <div className="flex items-start gap-3">
-                  <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                  <div className="flex-1">
-                    <p className="font-semibold text-red-400 text-sm uppercase tracking-wide mb-1">Typical Dealership:</p>
-                    <p className="text-gray-300">{item.typicalDealership}</p>
+                <div className="bg-gradient-to-r from-red-900/30 via-red-800/20 to-red-900/30 rounded-xl p-4 border border-red-500/30">
+                  <div className="flex items-start gap-3">
+                    <div className="p-1 bg-red-500 rounded-full">
+                      <XCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-comic font-bold text-red-400 text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                        😤 Typical Dealership
+                      </p>
+                      <p className="text-gray-300 leading-relaxed">{item.typicalDealership}</p>
+                    </div>
                   </div>
                 </div>
               </div>

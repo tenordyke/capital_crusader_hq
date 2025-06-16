@@ -109,15 +109,16 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
       <div className="max-w-7xl mx-auto text-center relative z-10">
         
         {/* Enhanced Badge with Urgency */}
-        <motion.div variants={heroVariants} className="mb-6">
-          <div className="inline-flex items-center gap-4 flex-wrap justify-center">
-            <div className="inline-flex items-center px-6 py-3 bg-crusaderRed text-white rounded-full font-black text-base sm:text-lg animate-pulse">
-              <Flame className="w-5 h-5 mr-2" />
-              LIMITED TIME: $500 OFF + 0% APR
+        <motion.div variants={heroVariants} className="mb-8">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 via-red-700 to-orange-600 text-white rounded-full font-black text-lg sm:text-xl shadow-2xl border-2 border-yellow-400/50 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              <Flame className="w-6 h-6 mr-3 animate-bounce relative z-10" />
+              <span className="relative z-10">LIMITED TIME: SAVE UP TO $8,000</span>
             </div>
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-black/90 via-black/80 to-black/90 border-2 border-crusaderYellow rounded-full text-crusaderYellow font-comic font-black text-base sm:text-lg backdrop-blur-md shadow-2xl">
-              <Trophy className="w-5 h-5 mr-2 text-crusaderYellow" />
-              Regina's #1 Auto Superhero
+            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-black/95 via-gray-900/95 to-black/95 border-3 border-yellow-400 rounded-full text-yellow-400 font-comic font-black text-lg sm:text-xl backdrop-blur-md shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 group">
+              <Trophy className="w-6 h-6 mr-3 text-yellow-400 group-hover:rotate-12 transition-transform duration-300 relative z-10" />
+              <span className="relative z-10">REGINA'S #1 AUTO SUPERHERO</span>
             </div>
           </div>
         </motion.div>
@@ -128,9 +129,6 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
             id="hero-title"
             className="font-comic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight relative"
           >
-            <span className="block text-white text-lg sm:text-xl md:text-2xl mb-2 font-bold">
-              SAVE UP TO $8,000 ON
-            </span>
             <span className="block text-crusaderYellow text-outline-black-lg drop-shadow-2xl">
               GMC, BUICK & CADILLAC
             </span>
@@ -151,6 +149,8 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
               alt="Troy Nordyke - Capital Crusader, your Regina auto superhero with business card"
               className="relative w-full h-auto rounded-3xl shadow-2xl transform group-hover:scale-105 transition-all duration-500 border-4 border-crusaderYellow/30"
               loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
             
             {/* Floating elements around image */}
@@ -260,7 +260,6 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
             <span className="relative z-10 text-outline-black-sm group-hover:text-outline-yellow-md">CALL TROY NOW</span>
           </Button>
         </motion.div>
-
 
       </div>
     </motion.section>

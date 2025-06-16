@@ -97,18 +97,22 @@ const AboveTheFoldCTASection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="font-comic text-4xl sm:text-5xl lg:text-6xl font-black mb-4 text-white"
+              className="font-comic text-4xl sm:text-5xl lg:text-6xl font-black mb-4 text-white leading-tight"
             >
-              Get <span className="text-crusaderYellow">$500 OFF</span> Your Next Vehicle!
+              Save Up To <span className="text-crusaderYellow text-outline-black-lg">$8,000</span> 
+              <br />
+              <span className="text-crusaderOrange">On Your Dream Vehicle!</span>
             </motion.h2>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-xl sm:text-2xl text-gray-300 mb-6"
+              className="text-xl sm:text-2xl text-gray-300 mb-6 leading-relaxed"
             >
-              Plus <span className="text-crusaderOrange font-bold">0% Financing</span> & <span className="text-crusaderOrange font-bold">No Payments for 90 Days!</span>
+              🎯 <span className="text-crusaderYellow font-bold">Employee Pricing</span> + 
+              <span className="text-crusaderOrange font-bold"> 0% Financing</span> + 
+              <span className="text-green-400 font-bold"> No Payments for 90 Days!</span>
             </motion.p>
             
             {/* Countdown Timer */}
@@ -142,39 +146,73 @@ const AboveTheFoldCTASection = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border-2 border-crusaderYellow/30"
+              className="bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 backdrop-blur-sm rounded-3xl p-8 border-3 border-yellow-400/50 shadow-2xl shadow-yellow-400/20 relative overflow-hidden group"
             >
-              <h3 className="font-comic text-2xl sm:text-3xl font-black text-crusaderYellow mb-4">
-                Book Your Test Drive Today!
-              </h3>
+              {/* Background glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <ul className="text-left space-y-3 mb-6">
-                <li className="flex items-center gap-2 text-white">
-                  <CalendarCheck className="w-5 h-5 text-green-500" />
-                  <span>Same-Day Appointments Available</span>
-                </li>
-                <li className="flex items-center gap-2 text-white">
-                  <CalendarCheck className="w-5 h-5 text-green-500" />
-                  <span>No-Pressure Experience Guaranteed</span>
-                </li>
-                <li className="flex items-center gap-2 text-white">
-                  <CalendarCheck className="w-5 h-5 text-green-500" />
-                  <span>Free Vehicle History Report</span>
-                </li>
-              </ul>
+              {/* Superhero badge */}
+              <div className="absolute -top-4 -right-4 bg-gradient-to-br from-yellow-400 to-orange-500 text-black font-comic font-black text-sm px-4 py-2 rounded-full transform rotate-12 shadow-lg">
+                🦸‍♂️ HERO DEAL!
+              </div>
               
-              <Button
-                onClick={handleBookNow}
-                className="w-full bg-gradient-to-r from-crusaderRed via-red-600 to-orange-500 hover:from-red-700 hover:via-red-700 hover:to-orange-600 text-white font-comic font-black text-xl sm:text-2xl py-6 rounded-xl shadow-2xl hover:shadow-crusaderRed/50 hover:scale-105 active:scale-95 transition-all duration-300 group"
-                aria-label="Book your VIP test drive now"
-              >
-                Book My VIP Test Drive
-                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <p className="text-sm text-gray-400 mt-4">
-                No credit card required • Instant confirmation
-              </p>
+              <div className="relative z-10">
+                <h3 className="font-comic text-2xl sm:text-3xl font-black text-yellow-400 mb-2">
+                  🚗 BOOK YOUR HEROIC TEST DRIVE!
+                </h3>
+                <p className="text-gray-300 text-lg mb-6 font-semibold">
+                  Join the Capital Crusader for an epic car-buying adventure!
+                </p>
+                
+                <div className="bg-gradient-to-r from-green-900/40 via-green-800/30 to-green-900/40 rounded-2xl p-4 mb-6 border border-green-500/30">
+                  <h4 className="font-comic text-lg font-bold text-green-400 mb-3 flex items-center gap-2">
+                    ⚡ WHAT YOU GET:
+                  </h4>
+                  <ul className="text-left space-y-2">
+                    <li className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="font-semibold">Same-Day Appointments Available</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="font-semibold">Zero-Pressure Experience Guaranteed</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="font-semibold">Free Vehicle History Report</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                      <span className="font-semibold">Personal Auto Superhero Service</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <Button
+                  onClick={handleBookNow}
+                  className="w-full bg-gradient-to-r from-red-600 via-red-700 to-orange-600 hover:from-red-700 hover:via-red-800 hover:to-orange-700 text-white font-comic font-black text-xl sm:text-2xl py-6 rounded-2xl shadow-2xl hover:shadow-red-500/50 hover:scale-105 active:scale-95 transition-all duration-300 group relative overflow-hidden border-2 border-yellow-400/30"
+                  aria-label="Book your VIP test drive now"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    🗓️ BOOK MY VIP TEST DRIVE
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Button>
+                
+                <div className="mt-4 flex items-center justify-center gap-4 text-sm text-gray-400">
+                  <span className="flex items-center gap-1">
+                    ✅ No credit card required
+                  </span>
+                  <span className="flex items-center gap-1">
+                    ⚡ Instant confirmation
+                  </span>
+                </div>
+                
+                <p className="text-yellow-400 font-comic text-sm mt-3 font-bold">
+                  🦸‍♂️ Your automotive adventure starts here!
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>

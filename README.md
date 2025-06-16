@@ -1,4 +1,4 @@
-# Capital Crusader - Auto Sales Lead Generation System
+w# Capital Crusader - Auto Sales Lead Generation System
 
 A superhero-themed automotive sales website with AI-powered lead follow-up system for Capital GMC Buick Cadillac in Regina, SK.
 
