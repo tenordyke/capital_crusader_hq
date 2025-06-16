@@ -1,5 +1,5 @@
 // Service to handle webhook calls to the backend
-const BACKEND_URL = 'http://localhost:3000'; // Adjust this if your backend runs on a different port
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
 export const sendLeadToWebhook = async (leadData) => {
   try {
