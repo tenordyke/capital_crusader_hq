@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%; /* Deep Blue/Black */
+    --foreground: 0 0% 98%; /* White */
+    --card: 240 8% 10%; /* Darker Blue */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 8% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 35 92% 58%; /* Hero Yellow */
+    --primary-foreground: 240 10% 4%; /* Dark Blue/Black for contrast on yellow */
+    --secondary: 15 84% 57%; /* Hero Orange */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 25%; /* Muted Blue */
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 72% 51%; /* Hero Red */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 30%; /* Darker Red */
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 15%; /* Dark Blue Border */
+    --input: 240 5% 15%;
+    --ring: 35 92% 58%; /* Hero Yellow for focus rings */
+    --radius: 0.75rem; /* Slightly more heroic rounding */
+  }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif; /* Set Inter as default body font */
+  }
+  .font-comic {
+    font-family: 'Bangers', cursive;
+  }
+}
+
+@layer utilities {
+  .comic-gradient {
+    background: linear-gradient(135deg, #0a192f 0%, #1a2a4f 20%, #cc3333 45%, #ff8c00 65%, #ffd700 85%, #ff4500 100%);
+  }
+  
+  .hero-title-gradient {
+    background: linear-gradient(90deg, #FFD700, #FFAD52, #FF4500, #B82E2E, #8B0000); /* Updated multi-stop gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent; 
+  }
+
+  .hero-title-emphasis-gradient { /* For specific bolded words if needed */
+    background: linear-gradient(90deg, #FFFACD, #FFD700, #FFA500, #FF6347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+
+  .glass-effect-hero {
+    background: rgba(10, 25, 47, 0.65); 
+    backdrop-filter: blur(14px) saturate(150%);
+    border: 1px solid rgba(255, 215, 0, 0.25); 
+  }
+  
+  .glow-effect-hero {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 140, 0, 0.4); 
+  }
+  
+  .text-glow-hero {
+    text-shadow: 0 0 18px rgba(255, 215, 0, 0.7), 0 0 8px rgba(255, 140, 0, 0.5); 
+  }
+
+  .button-primary-hero {
+    @apply bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 text-background font-bold;
+  }
+  
+  .button-primary-hero-enhanced {
+    @apply bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:from-red-700 hover:via-red-600 hover:to-orange-600 text-white font-bold;
+  }
+
+  .button-outline-hero {
+    @apply border-yellow-500 text-yellow-400 hover:bg-yellow-500/15 backdrop-blur-md;
+  }
+
+  .text-outline-black-xl { /* Thicker stroke for main title */
+    -webkit-text-stroke: 3px black; 
+    text-stroke: 3px black; 
+    paint-order: stroke fill; 
+  }
+
+  .text-outline-black-lg { /* Maintained for subtitle or slightly smaller headlines */
+    -webkit-text-stroke: 2.5px black; 
+    text-stroke: 2.5px black; 
+    paint-order: stroke fill; 
+  }
+  
+  .text-outline-black-md { /* New size for more granular control if needed */
+    -webkit-text-stroke: 2px black; 
+    text-stroke: 2px black; 
+    paint-order: stroke fill; 
+  }
+  
+  .text-outline-black-sm {
+    -webkit-text-stroke: 1.2px black;
+    text-stroke: 1.2px black;
+    paint-order: stroke fill;
+  }
+
+  .text-outline-black-xs { 
+    -webkit-text-stroke: 0.8px #000000; 
+    text-stroke: 0.8px #000000;
+    paint-order: stroke fill;
+  }
+
+  .text-outline-yellow-md { 
+    -webkit-text-stroke: 2px #fbbf24; 
+    text-stroke: 2px #fbbf24; 
+    paint-order: stroke fill; 
+  }
+
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 140, 0, 0.4);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 0 0 45px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 140, 0, 0.6);
+    }
+  }
+
+  .shadow-hero-image {
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+  }
+  .shadow-hero-image-enhanced {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
+  }
+
+  .sticky-cta-button {
+    background: linear-gradient(90deg, #ffb800, #e60000);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 0 15px rgba(230,0,0,0.5); 
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .sticky-cta-button:hover {
+    background: linear-gradient(90deg, #e6a200, #c20000); 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5), 0 0 20px rgba(194,0,0,0.7); 
+  }
+
+  .comic-style-offer-card {
+    position: relative;
+    background-size: 150% 150%; /* For gradient animation if added */
+    animation: comicCardShine 8s ease infinite alternate; /* Subtle shine */
+  }
+
+  .comic-style-offer-card::before { /* Optional decorative border element */
+    content: "";
+    position: absolute;
+    inset: -3px; /* slightly outside the border */
+    border-radius: calc(var(--radius) + 3px); /* match parent + border width */
+    background: conic-gradient(from 90deg at 50% 50%, #ffd70033, #ff8c0033, #cc333333, #ffd70033);
+    z-index: -1;
+    opacity: 0.7;
+    filter: blur(5px);
+    transition: opacity 0.3s ease;
+  }
+
+  .comic-style-offer-card:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes comicCardShine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Scrolling animation for testimonials */
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+}
