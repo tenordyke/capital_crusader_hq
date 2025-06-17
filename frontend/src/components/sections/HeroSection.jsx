@@ -28,6 +28,23 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
     });
   };
 
+  const scrollToLeadCapture = (tab = 'valuation') => {
+    const element = document.getElementById('smart-lead-capture');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Small delay to ensure scroll completes before tab change
+      setTimeout(() => {
+        // Dispatch custom event to change tab in SmartLeadCaptureSection
+        window.dispatchEvent(new CustomEvent('changeLeadCaptureTab', { detail: { tab } }));
+      }, 500);
+    }
+    toast({
+      title: "🎯 Navigating to Lead Capture!",
+      description: `Opening ${tab === 'valuation' ? 'Vehicle Valuation' : 'Inventory Search'} tool...`,
+      duration: 3000,
+    });
+  };
+
   // Enhanced animation variants
   const heroVariants = {
     initial: { opacity: 0, y: 50 },
@@ -302,6 +319,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
               </div>
               
               <Button
+                onClick={() => scrollToLeadCapture('valuation')}
                 className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 hover:from-green-700 hover:via-green-800 hover:to-emerald-700 text-white font-comic font-black text-xl py-6 px-12 rounded-2xl shadow-2xl hover:shadow-green-600/50 hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -366,6 +384,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
               
               <div className="text-center">
                 <Button
+                  onClick={() => scrollToLeadCapture('inventory')}
                   className="bg-gradient-to-r from-red-600 via-red-700 to-orange-600 hover:from-red-700 hover:via-red-800 hover:to-orange-700 text-white font-comic font-black text-xl py-6 px-10 rounded-2xl shadow-2xl hover:shadow-red-600/50 hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   🚨 RESERVE YOURS NOW - BEFORE THEY'RE GONE!

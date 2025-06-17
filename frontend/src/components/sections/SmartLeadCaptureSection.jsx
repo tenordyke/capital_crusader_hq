@@ -84,6 +84,18 @@ const SmartLeadCaptureSection = () => {
     }
   }, [formData]);
 
+  // Listen for tab change events from Hero section
+  useEffect(() => {
+    const handleTabChange = (event) => {
+      const { tab } = event.detail;
+      setActiveTab(tab);
+      setCurrentStep(1); // Reset to first step when changing tabs
+    };
+
+    window.addEventListener('changeLeadCaptureTab', handleTabChange);
+    return () => window.removeEventListener('changeLeadCaptureTab', handleTabChange);
+  }, []);
+
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
