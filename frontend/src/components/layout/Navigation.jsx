@@ -51,7 +51,7 @@ const Navigation = () => {
               isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
             }`}>
               
-              {/* Logo Section - Left Third */}
+              {/* Logo Section - Left Third - Comic Book Breakout Effect */}
               <div className="flex items-center justify-start relative">
                 <Link to="/" className="flex items-center group relative z-20">
                   <motion.img 
@@ -59,16 +59,18 @@ const Navigation = () => {
                     alt="The Capital Crusader Logo"
                     className={`w-auto object-contain filter brightness-125 contrast-110 transition-all duration-300 ${
                       isScrolled 
-                        ? 'h-20 sm:h-24' // Oversized even when scrolled
-                        : 'h-24 sm:h-28 md:h-32' // Extra oversized when not scrolled
+                        ? 'h-24 sm:h-28' // Comic book size when scrolled
+                        : 'h-28 sm:h-32 md:h-36' // Full comic book effect when not scrolled
                     }`}
                     style={{
-                      filter: 'brightness(125%) contrast(110%) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                      filter: 'brightness(125%) contrast(110%) drop-shadow(0 6px 12px rgba(0,0,0,0.4))',
+                      marginTop: '-8px', // Pull up slightly for head to break out
+                      marginBottom: '-8px' // Allow bottom to extend below
                     }}
                     whileHover={{ 
-                      scale: 1.1,
+                      scale: 1.08,
                       rotate: 2,
-                      filter: 'brightness(135%) contrast(120%) drop-shadow(0 6px 12px rgba(255,193,7,0.4))'
+                      filter: 'brightness(135%) contrast(120%) drop-shadow(0 8px 16px rgba(255,193,7,0.5))'
                     }}
                     transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
                   />
