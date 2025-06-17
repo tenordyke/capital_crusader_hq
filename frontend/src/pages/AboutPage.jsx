@@ -19,7 +19,7 @@ import {
   Calendar,
   DollarSign,
   Clock,
-  Handshake,
+  UserCheck,
   Trophy,
   MessageSquare
 } from 'lucide-react';
@@ -164,7 +164,7 @@ const AboutPage = () => {
                   </span>
                 </h1>
 
-                <p className="text-2xl sm:text-3xl text-white font-bold mb-8 leading-relaxed">
+                <p className="text-2xl sm:text-3xl text-white font-bold mb-8 leading-relaxed" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 0 rgba(0,0,0,0.8), 1px -1px 0 rgba(0,0,0,0.8), -1px 1px 0 rgba(0,0,0,0.8), 1px 1px 0 rgba(0,0,0,0.8)' }}>
                   Your <span className="text-yellow-400">Automotive Superhero</span> dedicated to 
                   <span className="text-orange-400"> Saving You Money</span> and delivering 
                   <span className="text-green-400"> World-Class Service!</span>
@@ -223,22 +223,31 @@ const AboutPage = () => {
               {/* Right Side - Hero Image */}
               <motion.div variants={fadeInUp} className="relative">
                 <div className="relative group">
-                  {/* Glow Effects */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-orange-500/20 to-red-600/30 rounded-3xl blur-3xl scale-110 opacity-60 group-hover:opacity-80 transition-all duration-700"></div>
-                  
                   {/* Image Container */}
                   <div 
-                    className="relative overflow-hidden rounded-3xl border border-yellow-400/30 group-hover:border-yellow-400/50 transition-all duration-500 shadow-2xl"
+                    className="relative overflow-hidden rounded-3xl border-2 border-yellow-400/50 group-hover:border-yellow-400 transition-all duration-500 shadow-xl"
                     style={{
                       background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-                      boxShadow: '0 25px 50px rgba(0,0,0,0.5)'
+                      boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
                     }}
                   >
                     <img 
-                      src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//circle.jpg"
+                      src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//1702928754689.jpeg"
                       alt="Troy Nordyke - The Capital Crusader, your Regina automotive superhero"
-                      className="w-full h-auto transform group-hover:scale-105 transition-all duration-700 filter group-hover:brightness-110"
+                      className="w-full h-auto"
                       loading="eager"
+                      style={{ 
+                        imageRendering: 'crisp-edges',
+                        filter: 'none',
+                        WebkitImageSmoothing: 'high',
+                        imageSmoothing: 'high',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        WebkitTransform: 'translateZ(0)',
+                        transform: 'translateZ(0)',
+                        maxWidth: '100%',
+                        height: 'auto'
+                      }}
                     />
                   </div>
                   
@@ -288,7 +297,7 @@ const AboutPage = () => {
                 THE CRUSADER'S ORIGIN STORY
               </h2>
               
-              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 0 rgba(0,0,0,0.8), 1px -1px 0 rgba(0,0,0,0.8), -1px 1px 0 rgba(0,0,0,0.8), 1px 1px 0 rgba(0,0,0,0.8)' }}>
                 Every superhero has an origin story. Here's how Troy became Regina's most trusted automotive hero.
               </p>
             </div>
@@ -439,7 +448,7 @@ const AboutPage = () => {
                 CRUSADER SUCCESS STORIES
               </h2>
               
-              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 0 rgba(0,0,0,0.8), 1px -1px 0 rgba(0,0,0,0.8), -1px 1px 0 rgba(0,0,0,0.8), 1px 1px 0 rgba(0,0,0,0.8)' }}>
                 Real stories from real Regina families who experienced The Crusader difference.
               </p>
             </div>
@@ -521,14 +530,14 @@ const AboutPage = () => {
                 transition={{ delay: 0.3, type: "spring", duration: 0.8 }}
                 className="inline-block p-4 bg-gradient-to-br from-red-400 to-orange-500 rounded-full mb-6 shadow-2xl"
               >
-                <Handshake className="w-12 h-12 text-white" />
+                <UserCheck className="w-12 h-12 text-white" />
               </motion.div>
               
               <h2 className="font-comic text-4xl sm:text-5xl md:text-6xl font-black text-red-400 mb-6 uppercase">
                 READY TO MEET YOUR HERO?
               </h2>
               
-              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-12">
+              <p className="text-xl sm:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-12" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 0 rgba(0,0,0,0.8), 1px -1px 0 rgba(0,0,0,0.8), -1px 1px 0 rgba(0,0,0,0.8), 1px 1px 0 rgba(0,0,0,0.8)' }}>
                 The Crusader is standing by, ready to save your day with unbeatable deals and world-class service!
               </p>
             </div>
