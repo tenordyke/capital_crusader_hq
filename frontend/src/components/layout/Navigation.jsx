@@ -37,16 +37,19 @@ const Navigation = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`relative rounded-2xl border border-white/20 shadow-2xl overflow-hidden transition-all duration-300 ${
+            className={`relative rounded-2xl border border-white/20 shadow-2xl transition-all duration-300 ${
               isScrolled 
                 ? 'backdrop-blur-xl bg-gradient-to-r from-red-600/95 via-red-700/95 to-red-800/95' 
                 : 'backdrop-blur-xl bg-gradient-to-r from-red-600/90 via-red-700/90 to-red-800/90'
             }`}
             style={{
-              boxShadow: '0 20px 40px rgba(220,38,127,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
+              boxShadow: '0 20px 40px rgba(220,38,127,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
+              overflow: 'visible' // Allow logo to break out
             }}
           >
-            <div className="grid grid-cols-3 items-center h-16 sm:h-20 px-6">
+            <div className={`grid grid-cols-3 items-center px-6 ${
+              isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
+            }`}>
               
               {/* Logo Section - Left Third */}
               <div className="flex items-center justify-start relative">
@@ -232,7 +235,7 @@ const Navigation = () => {
       </motion.nav>
       
       {/* Spacer for fixed navigation */}
-      <div className={`${isScrolled ? 'h-20' : 'h-24'} transition-all duration-300`} />
+      <div className={`${isScrolled ? 'h-24' : 'h-32'} transition-all duration-300`} />
     </>
   );
 };
