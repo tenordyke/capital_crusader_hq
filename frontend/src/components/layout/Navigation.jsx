@@ -91,14 +91,14 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Center Title - Properly Positioned */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:block">
+              {/* Center Title - Positioned to Avoid Overlap */}
+              <div className="flex-1 flex justify-center items-center px-4 hidden sm:block">
                 <Link 
                   to="/" 
                   className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap ${
                     isScrolled 
-                      ? 'text-xl md:text-2xl lg:text-3xl' 
-                      : 'text-2xl md:text-3xl lg:text-4xl'
+                      ? 'text-lg md:text-xl lg:text-2xl' 
+                      : 'text-xl md:text-2xl lg:text-3xl'
                   }`}
                   style={{ 
                     textShadow: '3px 3px 6px rgba(0,0,0,0.8)',
