@@ -429,7 +429,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
         </motion.div>
 
         {/* Enhanced Perks Cards with Premium Glassmorphism */}
-        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 sm:mb-20 max-w-7xl mx-auto">
+        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 sm:mb-24 max-w-7xl mx-auto">
           {[
             { icon: Shield, title: "Zero Pressure", desc: "No pushy sales tactics", color: "text-blue-400", gradient: "from-blue-500/20 to-cyan-500/20" },
             { icon: Zap, title: "Lightning Fast", desc: "Quick approvals & delivery", color: "text-yellow-400", gradient: "from-yellow-500/20 to-orange-500/20" },
@@ -486,7 +486,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
         </motion.div>
 
         {/* Enhanced Stats Bar */}
-        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
+        <motion.div variants={fadeInUp} className="mb-20 sm:mb-24">
           <div 
             className="backdrop-blur-xl border border-yellow-400/30 rounded-3xl p-8 sm:p-12 max-w-6xl mx-auto relative overflow-hidden"
             style={{
