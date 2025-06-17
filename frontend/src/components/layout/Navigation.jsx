@@ -46,10 +46,10 @@ const Navigation = () => {
               boxShadow: '0 20px 40px rgba(220,38,127,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
             }}
           >
-            <div className="flex items-center justify-between h-16 sm:h-20 px-6">
+            <div className="grid grid-cols-3 items-center h-16 sm:h-20 px-6">
               
-              {/* Logo Section */}
-              <div className="flex items-center">
+              {/* Logo Section - Left Third */}
+              <div className="flex items-center justify-start">
                 <Link to="/" className="flex items-center group">
                   <motion.img 
                     src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250616_072055.png"
@@ -63,11 +63,11 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Center Title */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:block">
+              {/* Center Title - Middle Third */}
+              <div className="flex items-center justify-center hidden sm:block">
                 <Link 
                   to="/" 
-                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap ${
+                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap text-center ${
                     isScrolled 
                       ? 'text-lg md:text-xl lg:text-2xl' 
                       : 'text-xl md:text-2xl lg:text-3xl'
@@ -78,8 +78,8 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Right Section */}
-              <div className="flex items-center gap-4">
+              {/* Right Section - Right Third */}
+              <div className="flex items-center justify-end gap-4">
                 
                 {/* Enhanced Desktop Navigation */}
                 <div className="hidden lg:flex items-center gap-8">
