@@ -73,157 +73,132 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
       variants={staggerContainer}
       initial="initial"
       animate="animate"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 overflow-hidden"
+      style={{
+        background: 'radial-gradient(ellipse at center, rgba(31,41,55,0.9) 0%, rgba(0,0,0,0.95) 70%, rgba(0,0,0,1) 100%)'
+      }}
     >
-      {/* Advanced 3D Parallax Background System */}
+      {/* Sophisticated Background System */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Layer 1: Deep Background */}
-        <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 bg-yellow-400/20 rounded-full blur-xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-            x: [-10, 10, -10],
-            rotateZ: [0, 360]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          style={{ transform: 'translateZ(-100px)' }}
-        />
-        
-        {/* Layer 2: Mid Background */}
-        <motion.div 
-          className="absolute bottom-32 right-16 w-40 h-40 bg-orange-500/20 rounded-full blur-xl"
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.3, 0.2],
-            y: [-15, 15, -15],
-            rotateZ: [360, 0]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          style={{ transform: 'translateZ(-50px)' }}
-        />
-        
-        {/* Layer 3: Foreground */}
-        <motion.div 
-          className="absolute top-1/2 left-1/4 w-24 h-24 bg-red-600/15 rounded-full blur-xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.1, 0.3, 0.1],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          style={{ transform: 'translateZ(-25px)' }}
-        />
-        
-        {/* Advanced Geometric Shapes */}
-        <motion.div
-          className="absolute top-1/4 right-1/3 w-16 h-16 border border-yellow-400/30 rotate-45"
-          animate={{
-            rotate: [45, 405],
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          style={{ 
-            background: 'linear-gradient(45deg, rgba(255,193,7,0.1), transparent)',
-            transform: 'translateZ(-75px)'
+        {/* Premium Gradient Mesh */}
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 80%, rgba(255,193,7,0.12) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,152,0,0.12) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(220,38,127,0.08) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(59,130,246,0.05) 0%, transparent 50%)
+            `
           }}
         />
         
-        <motion.div
-          className="absolute bottom-1/4 left-1/3 w-20 h-20 border border-orange-500/30"
-          animate={{
-            rotate: [0, -360],
-            scale: [1, 0.8, 1],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          style={{ 
-            background: 'linear-gradient(135deg, rgba(255,152,0,0.1), transparent)',
-            borderRadius: '30%',
-            transform: 'translateZ(-60px)'
-          }}
-        />
-        
-        {/* Floating Orbs with Physics */}
-        {[...Array(8)].map((_, i) => (
+        {/* Elegant Floating Elements */}
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-white/20 rounded-full"
+            className="absolute rounded-full"
             style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 30}%`,
-              transform: `translateZ(-${30 + i * 10}px)`
+              width: `${8 + i * 2}px`,
+              height: `${8 + i * 2}px`,
+              left: `${15 + i * 7}%`,
+              top: `${20 + (i % 4) * 20}%`,
+              background: `linear-gradient(135deg, rgba(255,193,7,${0.1 + i * 0.02}) 0%, rgba(255,152,0,${0.05 + i * 0.01}) 100%)`,
+              filter: 'blur(1px)'
             }}
             animate={{
-              y: [-20, -40, -20],
+              y: [-20 - i * 2, -40 - i * 2, -20 - i * 2],
               x: [-10, 10, -10],
-              opacity: [0.2, 0.8, 0.2],
-              scale: [0.5, 1, 0.5]
+              opacity: [0.3, 0.7, 0.3],
+              scale: [0.8, 1.2, 0.8]
             }}
             transition={{
-              duration: 4 + i * 0.5,
+              duration: 6 + i * 0.5,
               repeat: Infinity,
-              delay: i * 0.3,
+              delay: i * 0.4,
               ease: "easeInOut"
             }}
           />
         ))}
-        
-        {/* Mesh Gradient Overlay */}
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            background: `
-              radial-gradient(circle at 20% 80%, rgba(255,193,7,0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255,152,0,0.15) 0%, transparent 50%),
-              radial-gradient(circle at 40% 40%, rgba(220,38,127,0.1) 0%, transparent 50%)
-            `
-          }}
-        />
       </div>
 
       <div className="max-w-7xl mx-auto text-center relative z-10">
         
-        {/* Enhanced Badge with Urgency */}
-        <motion.div variants={heroVariants} className="mb-8">
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 via-red-700 to-orange-600 text-white rounded-full font-black text-lg sm:text-xl shadow-2xl border-2 border-yellow-400/50 relative overflow-hidden group">
+        {/* Refined Premium Badge Section */}
+        <motion.div variants={heroVariants} className="mb-16 sm:mb-20">
+          <div className="flex flex-col sm:flex-row items-center gap-8 justify-center">
+            {/* Premium Offer Badge */}
+            <motion.div 
+              whileHover={{ scale: 1.05, y: -3 }}
+              className="inline-flex items-center px-12 py-6 text-white rounded-2xl font-black text-lg sm:text-xl shadow-2xl border border-yellow-400/20 relative overflow-hidden group backdrop-blur-sm"
+              style={{
+                background: 'linear-gradient(135deg, rgba(220,38,127,0.95) 0%, rgba(239,68,68,0.95) 50%, rgba(249,115,22,0.95) 100%)',
+                boxShadow: '0 25px 50px rgba(220,38,127,0.25), inset 0 1px 0 rgba(255,255,255,0.2)'
+              }}
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              <Flame className="w-6 h-6 mr-3 animate-bounce relative z-10" />
-              <span className="relative z-10">LIMITED TIME: SAVE UP TO $8,000</span>
-            </div>
-            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-black/95 via-gray-900/95 to-black/95 border-3 border-yellow-400 rounded-full text-yellow-400 font-comic font-black text-lg sm:text-xl backdrop-blur-md shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 group">
-              <Trophy className="w-6 h-6 mr-3 text-yellow-400 group-hover:rotate-12 transition-transform duration-300 relative z-10" />
-              <span className="relative z-10">REGINA'S #1 AUTO SUPERHERO</span>
-            </div>
+              <Flame className="w-8 h-8 mr-4 animate-bounce relative z-10 drop-shadow-lg" />
+              <span className="relative z-10 tracking-wide">LIMITED TIME: SAVE UP TO $8,000</span>
+            </motion.div>
+            
+            {/* Authority Badge */}
+            <motion.div 
+              whileHover={{ scale: 1.05, y: -3 }}
+              className="inline-flex items-center px-12 py-6 rounded-2xl text-yellow-400 font-comic font-black text-lg sm:text-xl backdrop-blur-xl shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 group border border-yellow-400/40 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(31,41,55,0.85) 100%)',
+                boxShadow: '0 25px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,193,7,0.15)'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-transparent to-yellow-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <Trophy className="w-8 h-8 mr-4 text-yellow-400 group-hover:rotate-12 transition-transform duration-300 relative z-10 drop-shadow-lg" />
+              <span className="relative z-10 tracking-wide">REGINA'S #1 AUTO SUPERHERO</span>
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* Enhanced Main Title with Value Prop */}
-        <motion.div variants={titleVariants} className="mb-6 sm:mb-8">
+        {/* Refined Typography Hierarchy */}
+        <motion.div variants={titleVariants} className="mb-12 sm:mb-16">
           <h1 
             id="hero-title"
-            className="font-comic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight relative"
+            className="font-comic text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] relative"
           >
-            <span className="block text-yellow-400 drop-shadow-2xl" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(255,193,7,0.3)' }}>
+            <span 
+              className="block text-yellow-400 drop-shadow-2xl mb-2" 
+              style={{ 
+                textShadow: '4px 4px 8px rgba(0,0,0,0.8), 0 0 30px rgba(255,193,7,0.3), 0 0 60px rgba(255,193,7,0.1)',
+                letterSpacing: '-0.02em'
+              }}
+            >
               GMC, BUICK & CADILLAC
             </span>
-            <span className="block text-orange-400 drop-shadow-2xl mt-2" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(255,152,0,0.3)' }}>
+            <span 
+              className="block text-orange-400 drop-shadow-2xl" 
+              style={{ 
+                textShadow: '4px 4px 8px rgba(0,0,0,0.8), 0 0 30px rgba(255,152,0,0.3), 0 0 60px rgba(255,152,0,0.1)',
+                letterSpacing: '-0.02em'
+              }}
+            >
               NO PRESSURE. JUST SAVINGS!
             </span>
           </h1>
         </motion.div>
 
-        {/* Enhanced Hero Image with Perfect Visual Effects */}
-        <motion.div variants={imageVariants} className="mb-10 sm:mb-12">
-          <div className="relative max-w-3xl mx-auto group">
-            {/* Multi-layered glow effects */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/40 via-orange-500/30 to-red-600/40 rounded-3xl blur-3xl scale-110 opacity-70 group-hover:opacity-90 transition-all duration-700 animate-pulse"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-red-600/25 rounded-3xl blur-xl scale-105 opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
+        {/* Enhanced Hero Image with Sophisticated Effects */}
+        <motion.div variants={imageVariants} className="mb-16 sm:mb-20">
+          <div className="relative max-w-4xl mx-auto group">
+            {/* Sophisticated Glow System */}
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-orange-500/20 to-red-600/30 rounded-3xl blur-3xl scale-110 opacity-60 group-hover:opacity-80 transition-all duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/15 via-orange-500/10 to-red-600/15 rounded-3xl blur-xl scale-105 opacity-40 group-hover:opacity-60 transition-all duration-500"></div>
             
-            {/* Main image with enhanced effects */}
-            <div className="relative overflow-hidden rounded-3xl border-4 border-yellow-400/50 group-hover:border-yellow-400/80 transition-all duration-500 shadow-2xl">
+            {/* Premium Image Container */}
+            <div 
+              className="relative overflow-hidden rounded-3xl border border-yellow-400/30 group-hover:border-yellow-400/50 transition-all duration-500 shadow-2xl backdrop-blur-sm"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                boxShadow: '0 25px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)'
+              }}
+            >
               <img 
                 src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250615_200233.png"
                 alt="Troy Nordyke - Capital Crusader, your Regina auto superhero with business card"
@@ -233,181 +208,165 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
                 fetchpriority="high"
               />
               
-              {/* Overlay gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Subtle Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
-            {/* Enhanced floating elements */}
+            {/* Refined Floating Elements */}
             <motion.div 
-              className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-crusaderYellow to-yellow-300 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
+              className="absolute -top-8 -right-8 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border border-white/10"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,193,7,0.9) 0%, rgba(255,152,0,0.9) 100%)',
+                boxShadow: '0 20px 40px rgba(255,193,7,0.3)'
+              }}
               animate={{ 
-                y: [-8, 8, -8],
+                y: [-10, 10, -10],
                 rotate: [0, 15, -15, 0],
                 scale: [1, 1.1, 1]
               }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Star className="w-8 h-8 text-black drop-shadow-lg" />
+              <Star className="w-10 h-10 text-black drop-shadow-lg" />
             </motion.div>
             
             <motion.div 
-              className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-crusaderOrange to-orange-400 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20"
+              className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border border-white/10"
+              style={{
+                background: 'linear-gradient(135deg, rgba(249,115,22,0.9) 0%, rgba(239,68,68,0.9) 100%)',
+                boxShadow: '0 20px 40px rgba(249,115,22,0.3)'
+              }}
               animate={{ 
-                y: [8, -8, 8],
+                y: [10, -10, 10],
                 rotate: [0, -15, 15, 0],
                 scale: [1, 1.1, 1]
               }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 3 }}
             >
-              <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+              <Shield className="w-10 h-10 text-white drop-shadow-lg" />
             </motion.div>
-            
-            {/* Additional decorative elements */}
-            <motion.div 
-              className="absolute top-1/4 -left-8 w-8 h-8 bg-crusaderRed/80 rounded-full shadow-lg"
-              animate={{ 
-                x: [-5, 5, -5],
-                opacity: [0.6, 1, 0.6]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-            
-            <motion.div 
-              className="absolute bottom-1/4 -right-8 w-10 h-10 bg-crusaderYellow/70 rounded-full shadow-lg"
-              animate={{ 
-                x: [5, -5, 5],
-                opacity: [0.7, 1, 0.7]
-              }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-            />
-            
-            {/* Sparkle effects */}
-            <motion.div 
-              className="absolute top-8 left-8 w-2 h-2 bg-white rounded-full"
-              animate={{ 
-                scale: [0, 1, 0],
-                opacity: [0, 1, 0]
-              }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            />
-            
-            <motion.div 
-              className="absolute bottom-12 right-12 w-3 h-3 bg-crusaderYellow rounded-full"
-              animate={{ 
-                scale: [0, 1, 0],
-                opacity: [0, 1, 0]
-              }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            />
           </div>
         </motion.div>
 
-        {/* Instant Vehicle Valuation Tool - Lead Magnet */}
-        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
-          <div className="bg-gradient-to-br from-green-600/20 via-emerald-600/15 to-green-600/20 backdrop-blur-xl border-2 border-green-400/30 rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 via-transparent to-emerald-400/10 animate-pulse"></div>
+        {/* Instant Vehicle Valuation Tool - Refined Design */}
+        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
+          <div 
+            className="backdrop-blur-xl border border-green-400/20 rounded-3xl p-8 sm:p-12 max-w-5xl mx-auto relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(16,185,129,0.08) 50%, rgba(34,197,94,0.08) 100%)',
+              boxShadow: '0 25px 50px rgba(34,197,94,0.1), inset 0 1px 0 rgba(255,255,255,0.1)'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-green-400/5 via-transparent to-emerald-400/5"></div>
             
             <div className="relative z-10 text-center">
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="inline-block p-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mb-4 shadow-2xl"
+                className="inline-block p-6 rounded-full mb-8 shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(34,197,94,0.9) 0%, rgba(16,185,129,0.9) 100%)',
+                  boxShadow: '0 20px 40px rgba(34,197,94,0.3)'
+                }}
               >
-                <DollarSign className="w-12 h-12 text-white" />
+                <DollarSign className="w-16 h-16 text-white" />
               </motion.div>
               
-              <h2 className="font-comic text-3xl sm:text-4xl font-black text-green-400 mb-4 uppercase">
+              <h2 className="font-comic text-4xl sm:text-5xl font-black text-green-400 mb-6 uppercase tracking-wide">
                 🚗 FREE Instant Vehicle Valuation
               </h2>
               
-              <p className="text-white text-lg sm:text-xl mb-6 max-w-2xl mx-auto">
+              <p className="text-white text-xl sm:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
                 Get your vehicle's <span className="text-green-400 font-bold">current market value</span> in 30 seconds! 
                 Plus receive exclusive trade-in bonuses worth up to <span className="text-yellow-400 font-bold">$2,000 extra!</span>
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-green-400">30 Sec</div>
-                  <div className="text-white text-sm">Instant Results</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-yellow-400">$2,000</div>
-                  <div className="text-white text-sm">Bonus Value</div>
-                </div>
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-blue-400">100%</div>
-                  <div className="text-white text-sm">Free Service</div>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+                {[
+                  { value: "30 Sec", label: "Instant Results", color: "text-green-400" },
+                  { value: "$2,000", label: "Bonus Value", color: "text-yellow-400" },
+                  { value: "100%", label: "Free Service", color: "text-blue-400" }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)',
+                      boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
+                    }}
+                  >
+                    <div className={`text-3xl font-black ${item.color} mb-2`}>{item.value}</div>
+                    <div className="text-white text-sm font-semibold">{item.label}</div>
+                  </motion.div>
+                ))}
               </div>
               
               <Button
-                className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 hover:from-green-700 hover:via-green-800 hover:to-emerald-700 text-white font-comic font-black text-xl py-4 px-8 rounded-xl shadow-2xl hover:shadow-green-600/50 hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group"
+                className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 hover:from-green-700 hover:via-green-800 hover:to-emerald-700 text-white font-comic font-black text-xl py-6 px-12 rounded-2xl shadow-2xl hover:shadow-green-600/50 hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <DollarSign className="w-6 h-6 mr-3 relative z-10" />
+                <DollarSign className="w-7 h-7 mr-3 relative z-10" />
                 <span className="relative z-10">GET MY FREE VALUATION NOW!</span>
               </Button>
               
-              <p className="text-green-400 text-sm mt-3 font-semibold">
+              <p className="text-green-400 text-sm mt-4 font-semibold">
                 ⚡ Limited Time: Extra $500 Trade-In Bonus This Week Only!
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Real-Time Inventory Scarcity */}
-        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
-          <div className="bg-gradient-to-r from-red-600/20 via-orange-600/15 to-red-600/20 backdrop-blur-xl border-2 border-red-400/30 rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-400/10 via-transparent to-orange-400/10 animate-pulse"></div>
+        {/* Real-Time Inventory Scarcity - Enhanced */}
+        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
+          <div 
+            className="backdrop-blur-xl border border-red-400/20 rounded-3xl p-8 sm:p-12 max-w-6xl mx-auto relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(249,115,22,0.08) 50%, rgba(239,68,68,0.08) 100%)',
+              boxShadow: '0 25px 50px rgba(239,68,68,0.1), inset 0 1px 0 rgba(255,255,255,0.1)'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-red-400/5 via-transparent to-orange-400/5"></div>
             
             <div className="relative z-10">
-              <div className="text-center mb-6">
-                <h3 className="font-comic text-2xl sm:text-3xl font-black text-red-400 mb-2 uppercase">
+              <div className="text-center mb-10">
+                <h3 className="font-comic text-3xl sm:text-4xl font-black text-red-400 mb-4 uppercase tracking-wide">
                   🔥 HOT INVENTORY ALERT!
                 </h3>
-                <p className="text-white text-lg">
+                <p className="text-white text-xl">
                   These popular models are flying off our lot - <span className="text-yellow-400 font-bold">Act Fast!</span>
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-red-400/20">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-white font-bold">2025 GMC Sierra</span>
-                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">Only 2 Left!</span>
-                  </div>
-                  <div className="text-red-400 text-sm">47 people viewed today</div>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-red-500 h-2 rounded-full w-4/5"></div>
-                  </div>
-                </div>
-                
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-orange-400/20">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-white font-bold">2025 Cadillac XT4</span>
-                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full">3 Available</span>
-                  </div>
-                  <div className="text-orange-400 text-sm">32 people viewed today</div>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-orange-500 h-2 rounded-full w-3/5"></div>
-                  </div>
-                </div>
-                
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-yellow-400/20">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-white font-bold">2025 Buick Encore</span>
-                    <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full">5 Available</span>
-                  </div>
-                  <div className="text-yellow-400 text-sm">28 people viewed today</div>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-yellow-500 h-2 rounded-full w-2/5"></div>
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {[
+                  { model: "2025 GMC Sierra", status: "Only 2 Left!", viewers: "47 people viewed today", progress: "80%", color: "red" },
+                  { model: "2025 Cadillac XT4", status: "3 Available", viewers: "32 people viewed today", progress: "60%", color: "orange" },
+                  { model: "2025 Buick Encore", status: "5 Available", viewers: "28 people viewed today", progress: "40%", color: "yellow" }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className={`backdrop-blur-sm rounded-2xl p-6 border border-${item.color}-400/20`}
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)',
+                      boxShadow: '0 15px 30px rgba(0,0,0,0.2)'
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-white font-bold text-lg">{item.model}</span>
+                      <span className={`bg-${item.color}-500 text-white text-xs px-3 py-1 rounded-full font-bold`}>{item.status}</span>
+                    </div>
+                    <div className={`text-${item.color}-400 text-sm mb-3 font-semibold`}>{item.viewers}</div>
+                    <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div className={`bg-${item.color}-500 h-3 rounded-full transition-all duration-1000`} style={{ width: item.progress }}></div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
               
-              <div className="text-center mt-6">
+              <div className="text-center">
                 <Button
-                  className="bg-gradient-to-r from-red-600 via-red-700 to-orange-600 hover:from-red-700 hover:via-red-800 hover:to-orange-700 text-white font-comic font-black text-lg py-3 px-6 rounded-xl shadow-2xl hover:shadow-red-600/50 hover:scale-105 active:scale-95 transition-all duration-300"
+                  className="bg-gradient-to-r from-red-600 via-red-700 to-orange-600 hover:from-red-700 hover:via-red-800 hover:to-orange-700 text-white font-comic font-black text-xl py-6 px-10 rounded-2xl shadow-2xl hover:shadow-red-600/50 hover:scale-105 active:scale-95 transition-all duration-300"
                 >
                   🚨 RESERVE YOURS NOW - BEFORE THEY'RE GONE!
                 </Button>
@@ -416,51 +375,61 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
           </div>
         </motion.div>
 
-        {/* Enhanced Service Highlights with Social Proof */}
-        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
-          <h2 className="font-comic text-3xl sm:text-4xl md:text-5xl font-black text-orange-400 mb-6 text-center">
+        {/* Enhanced Service Highlights with Premium Design */}
+        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
+          <h2 className="font-comic text-4xl sm:text-5xl md:text-6xl font-black text-orange-400 mb-10 text-center tracking-wide">
             LEGENDARY SERVICE
           </h2>
-          <div className="bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-yellow-400/30 max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div 
+            className="backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-yellow-400/20 max-w-7xl mx-auto"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(31,41,55,0.4) 50%, rgba(0,0,0,0.6) 100%)',
+              boxShadow: '0 25px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+            }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-lg sm:text-xl text-white font-bold leading-relaxed mb-4">
+                <p className="text-xl sm:text-2xl text-white font-bold leading-relaxed mb-6">
                   <span className="text-yellow-400">🦸‍♂️ VIP Treatment</span> • 
                   <span className="text-blue-300">🚗 Zero-Pressure Experience</span> • 
                   <span className="text-orange-400">⚡ Lightning-Fast Approvals</span>
                 </p>
-                <p className="text-2xl sm:text-3xl text-yellow-300 font-black">
+                <p className="text-3xl sm:text-4xl text-yellow-300 font-black leading-tight">
                   Your Trusted Regina Auto Superhero Saves The Day!
                 </p>
               </div>
               
-              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <h4 className="text-yellow-400 font-bold text-lg mb-4">🌟 Recent Success Stories</h4>
-                <div className="space-y-3 text-sm text-white">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>"Saved $7,200 on my new Sierra!" - Mike R.</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span>"Approved in 15 minutes!" - Sarah K.</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                    <span>"Best car buying experience ever!" - David L.</span>
-                  </div>
+              <div 
+                className="backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)',
+                  boxShadow: '0 15px 30px rgba(0,0,0,0.2)'
+                }}
+              >
+                <h4 className="text-yellow-400 font-bold text-xl mb-6">🌟 Recent Success Stories</h4>
+                <div className="space-y-4 text-base text-white">
+                  {[
+                    { text: "Saved $7,200 on my new Sierra!", author: "Mike R.", color: "green" },
+                    { text: "Approved in 15 minutes!", author: "Sarah K.", color: "blue" },
+                    { text: "Best car buying experience ever!", author: "David L.", color: "purple" }
+                  ].map((story, index) => (
+                    <div key={index} className="flex items-center gap-4">
+                      <div className={`w-3 h-3 bg-${story.color}-400 rounded-full animate-pulse`}></div>
+                      <span>"{story.text}" - {story.author}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="mt-4 text-center">
-                  <span className="text-yellow-400 font-bold">⭐⭐⭐⭐⭐ 4.9/5 Rating</span>
-                  <div className="text-white/60 text-xs">Based on 1,247 reviews</div>
+                <div className="mt-6 text-center">
+                  <span className="text-yellow-400 font-bold text-lg">⭐⭐⭐⭐⭐ 4.9/5 Rating</span>
+                  <div className="text-white/60 text-sm">Based on 1,247 reviews</div>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Enhanced Perks Cards with Cutting-Edge Glassmorphism */}
-        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 sm:mb-12 max-w-6xl mx-auto">
+        {/* Enhanced Perks Cards with Premium Glassmorphism */}
+        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 sm:mb-20 max-w-7xl mx-auto">
           {[
             { icon: Shield, title: "Zero Pressure", desc: "No pushy sales tactics", color: "text-blue-400", gradient: "from-blue-500/20 to-cyan-500/20" },
             { icon: Zap, title: "Lightning Fast", desc: "Quick approvals & delivery", color: "text-yellow-400", gradient: "from-yellow-500/20 to-orange-500/20" },
@@ -478,59 +447,30 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
               whileTap={{ scale: 0.95 }}
               className="group relative"
             >
-              {/* Glassmorphism Card */}
-              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center transition-all duration-500 overflow-hidden"
-                   style={{
-                     background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-                     backdropFilter: 'blur(20px)',
-                     boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2)'
-                   }}>
-                
-                {/* Animated Background Gradient */}
+              <div 
+                className="relative backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%)',
+                  boxShadow: '0 15px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1)'
+                }}
+              >
                 <div className={`absolute inset-0 bg-gradient-to-br ${perk.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500`}></div>
                 
-                {/* Floating Particles Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-white/40 rounded-full"
-                      style={{
-                        left: `${20 + i * 15}%`,
-                        top: `${30 + (i % 2) * 40}%`
-                      }}
-                      animate={{
-                        y: [-10, -20, -10],
-                        opacity: [0, 1, 0],
-                        scale: [0, 1, 0]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Icon with Enhanced Animation */}
                 <motion.div
                   whileHover={{ 
                     rotate: [0, -10, 10, 0],
                     scale: 1.2
                   }}
                   transition={{ duration: 0.5 }}
-                  className="relative z-10 mb-4"
+                  className="relative z-10 mb-6"
                 >
-                  <div className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-br ${perk.gradient} flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg`}>
-                    <perk.icon className={`w-8 h-8 ${perk.color} drop-shadow-lg`} />
+                  <div className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${perk.gradient} flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg`}>
+                    <perk.icon className={`w-10 h-10 ${perk.color} drop-shadow-lg`} />
                   </div>
                 </motion.div>
                 
-                {/* Title with Kinetic Typography */}
                 <motion.h3 
-                  className="font-comic text-xl sm:text-2xl font-black text-yellow-400 mb-3 relative z-10"
+                  className="font-comic text-2xl font-black text-yellow-400 mb-4 relative z-10"
                   whileHover={{
                     scale: 1.05,
                     textShadow: "0 0 20px rgba(255,193,7,0.5)"
@@ -539,63 +479,77 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
                   {perk.title}
                 </motion.h3>
                 
-                {/* Description */}
-                <p className="text-gray-300 text-base sm:text-lg relative z-10 leading-relaxed">{perk.desc}</p>
-                
-                {/* Hover Border Glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                     style={{
-                       background: 'linear-gradient(135deg, transparent 0%, rgba(255,193,7,0.2) 50%, transparent 100%)',
-                       filter: 'blur(1px)'
-                     }}>
-                </div>
+                <p className="text-gray-300 text-lg relative z-10 leading-relaxed">{perk.desc}</p>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Enhanced Stats Bar */}
-        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
-          <div className="bg-gradient-to-r from-black/80 via-black/60 to-black/80 backdrop-blur-md border-2 border-crusaderYellow/50 rounded-2xl p-6 sm:p-8 max-w-5xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-crusaderYellow/10 via-crusaderOrange/5 to-crusaderRed/10 animate-pulse"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center relative z-10">
-              <div className="group">
-                <div className="text-4xl sm:text-5xl font-comic font-black text-crusaderYellow mb-2 group-hover:scale-110 transition-transform duration-300">1,000+</div>
-                <div className="text-gray-300 text-lg sm:text-xl font-semibold">Happy Regina Drivers</div>
-              </div>
-              <div className="group">
-                <div className="text-4xl sm:text-5xl font-comic font-black text-crusaderYellow mb-2 group-hover:scale-110 transition-transform duration-300">0%</div>
-                <div className="text-gray-300 text-lg sm:text-xl font-semibold">Financing Available</div>
-              </div>
-              <div className="group">
-                <div className="text-4xl sm:text-5xl font-comic font-black text-crusaderYellow mb-2 group-hover:scale-110 transition-transform duration-300">5-Star</div>
-                <div className="text-gray-300 text-lg sm:text-xl font-semibold">Customer Reviews</div>
-              </div>
+        <motion.div variants={fadeInUp} className="mb-16 sm:mb-20">
+          <div 
+            className="backdrop-blur-xl border border-yellow-400/30 rounded-3xl p-8 sm:p-12 max-w-6xl mx-auto relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(31,41,55,0.4) 50%, rgba(0,0,0,0.6) 100%)',
+              boxShadow: '0 25px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-orange-500/5 to-red-600/10"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center relative z-10">
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="group"
+              >
+                <div className="text-5xl sm:text-6xl font-comic font-black text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300">1,000+</div>
+                <div className="text-gray-300 text-xl font-semibold">Happy Regina Drivers</div>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="group"
+              >
+                <div className="text-5xl sm:text-6xl font-comic font-black text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300">0%</div>
+                <div className="text-gray-300 text-xl font-semibold">Financing Available</div>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="group"
+              >
+                <div className="text-5xl sm:text-6xl font-comic font-black text-yellow-400 mb-3 group-hover:scale-110 transition-transform duration-300">5-Star</div>
+                <div className="text-gray-300 text-xl font-semibold">Customer Reviews</div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
         {/* Enhanced CTA Buttons */}
-        <motion.div variants={buttonVariants} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
+        <motion.div variants={buttonVariants} className="flex flex-col sm:flex-row gap-8 justify-center items-center">
           <Button 
             onClick={handleBookTestDrive}
-            className="group w-full sm:w-auto font-comic bg-gradient-to-r from-crusaderRed via-red-600 to-orange-500 hover:from-red-700 hover:via-red-800 hover:to-orange-600 text-white text-xl sm:text-2xl font-black px-10 py-6 sm:px-14 sm:py-8 rounded-2xl shadow-2xl hover:shadow-crusaderRed/50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 relative overflow-hidden"
+            className="group w-full sm:w-auto font-comic text-white text-2xl sm:text-3xl font-black px-16 py-8 rounded-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, rgba(220,38,127,0.95) 0%, rgba(239,68,68,0.95) 50%, rgba(249,115,22,0.95) 100%)',
+              boxShadow: '0 25px 50px rgba(220,38,127,0.3), inset 0 1px 0 rgba(255,255,255,0.2)'
+            }}
             aria-label="Book your heroic test drive with Troy"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <CalendarCheck className="w-7 h-7 relative z-10" />
-            <span className="relative z-10 text-outline-black-sm">BOOK HEROIC TEST DRIVE</span>
+            <CalendarCheck className="w-8 h-8 relative z-10" />
+            <span className="relative z-10">BOOK HEROIC TEST DRIVE</span>
           </Button>
           
           <Button 
             onClick={handleCallNow}
             variant="outline"
-            className="group w-full sm:w-auto font-comic border-3 border-crusaderYellow text-crusaderYellow hover:bg-crusaderYellow hover:text-black text-xl sm:text-2xl font-black px-10 py-6 sm:px-14 sm:py-8 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-md bg-black/20 hover:shadow-2xl hover:shadow-crusaderYellow/30 hover:scale-105 relative overflow-hidden"
+            className="group w-full sm:w-auto font-comic text-yellow-400 hover:text-black text-2xl sm:text-3xl font-black px-16 py-8 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-xl hover:scale-105 relative overflow-hidden border border-yellow-400/50"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(31,41,55,0.8) 100%)',
+              boxShadow: '0 25px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,193,7,0.15)'
+            }}
             aria-label="Call Troy directly for immediate assistance"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-crusaderYellow/20 via-transparent to-crusaderYellow/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            <Phone className="w-7 h-7 relative z-10" />
-            <span className="relative z-10 text-outline-black-sm group-hover:text-outline-yellow-md">CALL TROY NOW</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            <Phone className="w-8 h-8 relative z-10" />
+            <span className="relative z-10">CALL TROY NOW</span>
           </Button>
         </motion.div>
 
