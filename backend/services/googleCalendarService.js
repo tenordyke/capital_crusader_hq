@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-require('dotenv').config({ path: '../../.env' });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 // Google Calendar configuration
 const TROY_EMAIL = 'troyelliottnordyke@gmail.com';

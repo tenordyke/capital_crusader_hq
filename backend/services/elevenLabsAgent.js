@@ -1,7 +1,7 @@
 const { ElevenLabsClient } = require('@elevenlabs/elevenlabs-js');
 const twilio = require('twilio');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
 

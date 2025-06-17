@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { X, CalendarCheck, Gift, Star } from 'lucide-react';
+import { X, CalendarCheck } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/supabaseClient';
 import { sendLeadToWebhook } from '@/lib/webhookService';
@@ -18,7 +18,6 @@ const ExitIntentPopup = () => {
     let exitTimer;
     
     const handleMouseLeave = (e) => {
-      // Only trigger if mouse leaves from the top of the page and popup hasn't been shown
       if (e.clientY <= 0 && !hasShown && !isVisible) {
         clearTimeout(exitTimer);
         exitTimer = setTimeout(() => {
@@ -32,7 +31,6 @@ const ExitIntentPopup = () => {
       clearTimeout(exitTimer);
     };
 
-    // Also show after 45 seconds if user hasn't left
     const timeoutTimer = setTimeout(() => {
       if (!hasShown && !isVisible) {
         setIsVisible(true);
@@ -67,7 +65,6 @@ const ExitIntentPopup = () => {
     setIsSubmitting(true);
 
     try {
-      // Save to Supabase
       const { data, error } = await supabase
         .from('leads')
         .insert([{
@@ -82,7 +79,6 @@ const ExitIntentPopup = () => {
 
       if (error) throw error;
 
-      // Send to webhook for AI follow-up
       try {
         await sendLeadToWebhook({
           name: formData.name,
@@ -97,8 +93,8 @@ const ExitIntentPopup = () => {
       }
       
       toast({
-        title: "VIP Test Drive Reserved! 🎉",
-        description: "Troy will contact you within 24 hours to schedule your exclusive test drive!",
+        title: "Test Drive Reserved! 🎉",
+        description: "Troy will contact you within 24 hours!",
         duration: 5000,
         className: "bg-green-600 border-green-700 text-white font-semibold",
       });
@@ -118,17 +114,6 @@ const ExitIntentPopup = () => {
     }
   };
 
-  const handleBookNow = () => {
-    window.open('https://troyatcapital.setmore.com/troy?utm_source=website&utm_medium=popup&utm_campaign=exit_intent', '_blank', 'noopener,noreferrer');
-    setIsVisible(false);
-    toast({
-      title: "Redirecting to Booking! 🚀",
-      description: "Choose your perfect test drive time!",
-      duration: 3000,
-      className: "bg-blue-600 border-blue-700 text-white font-semibold",
-    });
-  };
-
   return (
     <AnimatePresence>
       {isVisible && (
@@ -140,74 +125,33 @@ const ExitIntentPopup = () => {
           onClick={handleClose}
         >
           <motion.div
-            initial={{ scale: 0.8, opacity: 0, y: 50 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.8, opacity: 0, y: 50 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-2xl p-8 max-w-md w-full mx-auto shadow-2xl border-2 border-yellow-400"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative bg-white rounded-xl p-6 max-w-sm w-full mx-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200"
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
               aria-label="Close popup"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
 
-            {/* Header */}
+            {/* Simple Header */}
             <div className="text-center mb-6">
-              <div className="flex justify-center mb-4">
-                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-3 rounded-full">
-                  <Gift className="w-8 h-8 text-black" />
-                </div>
-              </div>
-              
-              <h2 className="font-comic text-2xl sm:text-3xl font-black text-yellow-400 mb-2 uppercase"
-                  style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                Wait! Don't Miss Out!
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Wait! Get Your Free Test Drive
               </h2>
-              
-              <p className="text-white text-lg font-semibold mb-2">
-                🎁 <span className="text-yellow-300">EXCLUSIVE OFFER</span> 🎁
+              <p className="text-gray-600">
+                Book now and Troy will call you within 24 hours
               </p>
-              
-              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse border border-yellow-400 mb-4">
-                LIMITED TIME ONLY!
-              </div>
             </div>
 
-            {/* Offer details */}
-            <div className="bg-black/40 rounded-xl p-4 mb-6 border border-yellow-400/30">
-              <div className="flex items-center gap-2 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                ))}
-                <span className="text-yellow-300 text-sm font-semibold">VIP Treatment</span>
-              </div>
-              
-              <ul className="text-white space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Priority test drive scheduling</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Exclusive financing pre-approval</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>No-pressure consultation with Troy</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Special pricing consideration</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Form */}
+            {/* Simple Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="text"
@@ -216,7 +160,7 @@ const ExitIntentPopup = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="bg-black/50 border-yellow-400/50 text-white placeholder-gray-400 focus:border-yellow-400"
+                className="w-full"
               />
               
               <Input
@@ -226,7 +170,7 @@ const ExitIntentPopup = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
-                className="bg-black/50 border-yellow-400/50 text-white placeholder-gray-400 focus:border-yellow-400"
+                className="w-full"
               />
               
               <Input
@@ -236,47 +180,32 @@ const ExitIntentPopup = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="bg-black/50 border-yellow-400/50 text-white placeholder-gray-400 focus:border-yellow-400"
+                className="w-full"
               />
 
-              {/* Action buttons */}
-              <div className="space-y-3 pt-2">
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full group relative overflow-hidden font-comic bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:via-red-800 hover:to-red-900 text-white text-lg font-black py-4 rounded-xl shadow-xl hover:shadow-red-500/50 transition-all duration-300 border-2 border-yellow-400/60"
-                  style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)' }}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)' }}>Reserving Your VIP Spot...</span>
-                    </div>
-                  ) : (
-                    <>
-                      <CalendarCheck className="w-5 h-5 mr-2" />
-                      <span style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8), -1px 1px 2px rgba(0,0,0,0.8)' }}>CLAIM MY VIP TEST DRIVE!</span>
-                    </>
-                  )}
-                </Button>
-                
-                <Button
-                  type="button"
-                  onClick={handleBookNow}
-                  variant="outline"
-                  className="w-full font-comic border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black text-base py-3 rounded-xl transition-all duration-300"
-                >
-                  Or Book Online Now
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-colors"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Booking...</span>
+                  </div>
+                ) : (
+                  <>
+                    <CalendarCheck className="w-5 h-5 mr-2" />
+                    Book My Test Drive
+                  </>
+                )}
+              </Button>
             </form>
 
-            {/* Trust indicators */}
-            <div className="text-center mt-4 pt-4 border-t border-gray-600">
-              <p className="text-gray-400 text-xs">
-                🔒 Your information is secure • No spam, ever • Regina's #1 Auto Superhero
-              </p>
-            </div>
+            {/* Simple trust indicator */}
+            <p className="text-center text-xs text-gray-500 mt-4">
+              🔒 Your information is secure • No spam, ever
+            </p>
           </motion.div>
         </motion.div>
       )}

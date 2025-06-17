@@ -75,19 +75,19 @@ const AboutTroySection = ({ fadeInUp, staggerContainer }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", duration: 0.8 }}
-            className="inline-flex items-center bg-gradient-to-r from-crusaderRed to-orange-600 text-white px-8 py-4 rounded-full font-black text-lg mb-8 shadow-2xl"
+            className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-8 py-4 rounded-full font-black text-lg mb-8 shadow-2xl"
           >
             <span>30+ YEARS EXPERIENCE</span>
           </motion.div>
           
           {/* Clean Title */}
-          <h2 id="about-troy-title" className="font-comic text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-crusaderYellow uppercase text-outline-black-lg drop-shadow-2xl">
-            Meet Troy
+          <h2 id="about-troy-title" className="font-comic text-5xl sm:text-6xl md:text-7xl font-black mb-6 text-yellow-400 uppercase drop-shadow-2xl">
+            MEET THE CAPITAL CRUSADER
           </h2>
           
           {/* Clean Subtitle */}
           <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto font-semibold leading-relaxed">
-            Regina's trusted auto superhero with <span className="text-crusaderYellow">30+ years of sales expertise</span>
+            Regina's trusted auto superhero with <span className="text-yellow-400">30+ years of sales expertise</span>
           </p>
         </motion.div>
 

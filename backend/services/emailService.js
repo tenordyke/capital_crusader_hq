@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { generateCarBuyersGuide, generateCarBuyersGuideFallback } = require('./pdfGenerator');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 // Create a transporter for custom domain email
 // You'll need to add these to your .env file:

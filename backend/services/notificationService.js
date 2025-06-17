@@ -1,15 +1,15 @@
 const nodemailer = require('nodemailer');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 // Create transporter for notifications
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST || 'smtp.hostinger.com',
-  port: parseInt(process.env.EMAIL_PORT) || 465,
-  secure: true,
+  host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+  port: parseInt(process.env.EMAIL_PORT) || 587,
+  secure: false, // Use STARTTLS
   auth: {
-    user: process.env.EMAIL_USER || 'drive@capitalcrusader.ca',
-    pass: process.env.EMAIL_PASS || '$5438576TroyAlix$'
+    user: process.env.EMAIL_USER || 'troyelliottnordyke@gmail.com',
+    pass: process.env.EMAIL_PASS || 'I378EGm6Fi'
   },
   tls: {
     rejectUnauthorized: false
@@ -178,6 +178,71 @@ const notifyTroy = async (type, data) => {
               <div class="transcript">
                 <h3>Message:</h3>
                 <p>${data.message}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        break;
+        
+      case 'DAILY_SUMMARY':
+        subject = `📊 Daily Lead Summary - ${data.date}`;
+        htmlContent = `
+          ${baseStyle}
+          <div class="container">
+            <div class="header" style="background-color: #6f42c1;">
+              <h2 style="color: white;">Daily Performance Summary</h2>
+              <p style="color: white; margin: 5px 0;">${data.date}</p>
+            </div>
+            <div class="content">
+              <div class="info-box">
+                <h3>Today's Activity:</h3>
+                <p><span class="label">🎯 New Leads:</span> <span class="value">${data.totalLeads}</span></p>
+                <p><span class="label">📞 AI Calls Initiated:</span> <span class="value">${data.callsInitiated}</span></p>
+                <p><span class="label">📧 Emails Sent:</span> <span class="value">${data.emailsSent}</span></p>
+                <p><span class="label">💬 Text Messages:</span> <span class="value">${data.textsSent}</span></p>
+                <p><span class="label">🗓️ Appointments Booked:</span> <span class="value">${data.appointments}</span></p>
+              </div>
+              ${data.leads && data.leads.length > 0 ? `
+                <div class="info-box">
+                  <h3>Today's Leads:</h3>
+                  ${data.leads.map(lead => `
+                    <div style="border-bottom: 1px solid #eee; padding: 10px 0;">
+                      <strong>${lead.name}</strong> - ${lead.vehicle || 'Vehicle inquiry'}<br>
+                      <small>📞 ${lead.phone} | 📧 ${lead.email}</small>
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+        break;
+        
+      case 'WEEKLY_REPORT':
+        subject = `📈 Weekly Performance Report - ${data.weekStart} to ${data.weekEnd}`;
+        htmlContent = `
+          ${baseStyle}
+          <div class="container">
+            <div class="header" style="background-color: #28a745;">
+              <h2 style="color: white;">Weekly Performance Report</h2>
+              <p style="color: white; margin: 5px 0;">${data.weekStart} to ${data.weekEnd}</p>
+            </div>
+            <div class="content">
+              <div class="info-box">
+                <h3>Week Summary:</h3>
+                <p><span class="label">🎯 Total Leads:</span> <span class="value">${data.totalLeads}</span></p>
+                <p><span class="label">📞 Calls Completed:</span> <span class="value">${data.callsCompleted}</span></p>
+                <p><span class="label">🗓️ Appointments Booked:</span> <span class="value">${data.appointmentsBooked}</span></p>
+                <p><span class="label">💬 Customer Replies:</span> <span class="value">${data.customerReplies}</span></p>
+                <p><span class="label">📊 Conversion Rate:</span> <span class="value">${data.conversionRate}%</span></p>
+              </div>
+              <div class="action-taken">
+                <h3>Performance Insights:</h3>
+                <ul>
+                  <li>Lead-to-appointment conversion: ${data.conversionRate}%</li>
+                  <li>Average response rate: ${data.totalLeads > 0 ? Math.round((data.customerReplies / data.totalLeads) * 100) : 0}%</li>
+                  <li>AI call completion rate: ${data.totalLeads > 0 ? Math.round((data.callsCompleted / data.totalLeads) * 100) : 0}%</li>
+                </ul>
               </div>
             </div>
           </div>

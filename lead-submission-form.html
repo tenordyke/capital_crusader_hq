@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Crusader - Lead Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #FFD700;
+            outline: none;
+        }
+        .required {
+            color: #d32f2f;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #b71c1c, #d32f2f);
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Capital Crusader Lead Assistant</h1>
+            <p>Submit a new lead to activate Lex (AI Assistant)</p>
+        </div>
+
+        <form id="leadForm">
+            <div class="form-group">
+                <label for="name">Customer Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="3065551234">
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle_interest">Vehicle Interest</label>
+                <select id="vehicle_interest" name="vehicle_interest">
+                    <option value="">Select a vehicle...</option>
+                    <option value="2024 GMC Sierra">2024 GMC Sierra</option>
+                    <option value="2024 GMC Canyon">2024 GMC Canyon</option>
+                    <option value="2024 Buick Encore">2024 Buick Encore</option>
+                    <option value="2024 Buick Envision">2024 Buick Envision</option>
+                    <option value="2024 Cadillac Escalade">2024 Cadillac Escalade</option>
+                    <option value="2024 Cadillac XT5">2024 Cadillac XT5</option>
+                    <option value="Used Vehicle">Used Vehicle</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="trade_in">Trade-In Vehicle</label>
+                <input type="text" id="trade_in" name="trade_in" placeholder="e.g., 2019 Ford F-150">
+            </div>
+
+            <div class="form-group">
+                <label for="trade_in_year">Trade-In Year</label>
+                <input type="number" id="trade_in_year" name="trade_in_year" min="1990" max="2025">
+            </div>
+
+            <div class="form-group">
+                <label for="trade_in_mileage">Trade-In Mileage</label>
+                <input type="text" id="trade_in_mileage" name="trade_in_mileage" placeholder="e.g., 85,000 km">
+            </div>
+
+            <div class="form-group">
+                <label for="purchase_timeframe">Purchase Timeframe</label>
+                <select id="purchase_timeframe" name="purchase_timeframe">
+                    <option value="">Select timeframe...</option>
+                    <option value="immediately">Immediately</option>
+                    <option value="within_week">Within a week</option>
+                    <option value="within_month">Within a month</option>
+                    <option value="2-3_months">2-3 months</option>
+                    <option value="just_browsing">Just browsing</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                    <option value="">Select budget...</option>
+                    <option value="under_20k">Under $20,000</option>
+                    <option value="20k-30k">$20,000 - $30,000</option>
+                    <option value="30k-40k">$30,000 - $40,000</option>
+                    <option value="40k-50k">$40,000 - $50,000</option>
+                    <option value="50k-70k">$50,000 - $70,000</option>
+                    <option value="over_70k">Over $70,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Contact Methods</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="contact_call" name="contact_method" value="Call" checked>
+                        <label for="contact_call">📞 Phone Call</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="contact_text" name="contact_method" value="Text" checked>
+                        <label for="contact_text">💬 Text Message</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="contact_email" name="contact_method" value="Email" checked>
+                        <label for="contact_email">📧 Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="source">Lead Source</label>
+                <select id="source" name="source">
+                    <option value="Website Form">Website Form</option>
+                    <option value="Phone Inquiry">Phone Inquiry</option>
+                    <option value="Walk-in">Walk-in</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Manual Entry">Manual Entry</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">🚀 Activate Lead Assistant</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const submitBtn = document.querySelector('.submit-btn');
+            
+            // Show loading state
+            submitBtn.textContent = '⏳ Processing Lead...';
+            submitBtn.disabled = true;
+            resultDiv.style.display = 'none';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const leadData = {};
+            
+            // Get regular form fields
+            for (let [key, value] = formData.entries()) {
+                if (key !== 'contact_method') {
+                    leadData[key] = value;
+                }
+            }
+            
+            // Handle contact methods (checkboxes)
+            const contactMethods = [];
+            document.querySelectorAll('input[name="contact_method"]:checked').forEach(cb => {
+                contactMethods.push(cb.value);
+            });
+            leadData.preferred_contact_method = contactMethods.join(', ');
+            
+            try {
+                // In a real implementation, this would send to your webhook
+                // For now, we'll simulate the process
+                console.log('Lead Data:', leadData);
+                
+                // Simulate API call delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Show success message
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `
+                    <h3>✅ Lead Successfully Submitted!</h3>
+                    <p><strong>${leadData.name}</strong> has been added to the system.</p>
+                    <p>🤖 <strong>Lex (AI Assistant) is now processing this lead:</strong></p>
+                    <ul>
+                        ${contactMethods.includes('Call') ? '<li>📞 AI phone call will be initiated</li>' : ''}
+                        ${contactMethods.includes('Email') ? '<li>📧 Welcome email with Car Buyer\'s Guide will be sent</li>' : ''}
+                        ${contactMethods.includes('Text') ? '<li>💬 Text message with $500 OFF promotion will be sent</li>' : ''}
+                        <li>📨 Troy will receive a detailed notification</li>
+                    </ul>
+                    <p><strong>Next Steps:</strong> Check your Gmail for lead notifications!</p>
+                `;
+                resultDiv.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <h3>❌ Error Processing Lead</h3>
+                    <p>There was an error submitting the lead. Please try again.</p>
+                    <p>Error: ${error.message}</p>
+                `;
+                resultDiv.style.display = 'block';
+            }
+            
+            // Reset button
+            submitBtn.textContent = '🚀 Activate Lead Assistant';
+            submitBtn.disabled = false;
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 const twilio = require('twilio');
 const { uploadAudioToSupabase } = require('./supabaseStorage');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 // Handle node-fetch v3 ESM import
 const fetchModule = fetch.default || fetch;
