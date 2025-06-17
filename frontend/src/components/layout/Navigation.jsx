@@ -91,8 +91,9 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Center Title - Positioned to Avoid Overlap */}
-              <div className="flex-1 flex justify-center items-center px-4 hidden sm:block">
+              {/* Center Section - Title + Navigation Links */}
+              <div className="flex-1 flex justify-center items-center gap-8 px-4 hidden sm:flex">
+                {/* Title */}
                 <Link 
                   to="/" 
                   className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap ${
@@ -107,13 +108,9 @@ const Navigation = () => {
                 >
                   THE CAPITAL CRUSADER
                 </Link>
-              </div>
 
-              {/* Right Section - Navigation & Call Button */}
-              <div className="flex items-center gap-6">
-                
-                {/* Desktop Navigation Links */}
-                <div className="hidden lg:flex items-center gap-8">
+                {/* Navigation Links - Beside Title */}
+                <div className="flex items-center gap-6">
                   {navItems.map((item) => (
                     <motion.div key={item.name} className="relative">
                       <Link
@@ -143,7 +140,10 @@ const Navigation = () => {
                     </motion.div>
                   ))}
                 </div>
+              </div>
 
+              {/* Right Section - Call Button */}
+              <div className="flex items-center gap-6">
                 {/* Call Button */}
                 <motion.a
                   href="tel:+1-306-331-4802"
@@ -165,7 +165,7 @@ const Navigation = () => {
                   onClick={() => setIsOpen(!isOpen)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="lg:hidden text-white hover:text-yellow-400 transition-colors p-2"
+                  className="sm:hidden text-white hover:text-yellow-400 transition-colors p-2"
                 >
                   <AnimatePresence mode="wait">
                     {isOpen ? (
@@ -202,11 +202,11 @@ const Navigation = () => {
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="lg:hidden border-t border-white/20 bg-black/20 backdrop-blur-xl"
+                  className="sm:hidden border-t border-white/20 bg-black/20 backdrop-blur-xl"
                 >
                   <div className="p-4 space-y-2">
                     {/* Mobile Title */}
-                    <div className="text-center mb-4 sm:hidden">
+                    <div className="text-center mb-4">
                       <Link 
                         to="/" 
                         className="font-comic text-yellow-400 font-bold text-xl"
