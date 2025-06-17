@@ -302,20 +302,160 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
           </div>
         </motion.div>
 
-        {/* Enhanced Service Highlights */}
+        {/* Instant Vehicle Valuation Tool - Lead Magnet */}
         <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
-          <h2 className="font-comic text-3xl sm:text-4xl md:text-5xl font-black text-crusaderOrange mb-6 text-outline-black-lg">
+          <div className="bg-gradient-to-br from-green-600/20 via-emerald-600/15 to-green-600/20 backdrop-blur-xl border-2 border-green-400/30 rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 via-transparent to-emerald-400/10 animate-pulse"></div>
+            
+            <div className="relative z-10 text-center">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="inline-block p-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full mb-4 shadow-2xl"
+              >
+                <DollarSign className="w-12 h-12 text-white" />
+              </motion.div>
+              
+              <h2 className="font-comic text-3xl sm:text-4xl font-black text-green-400 mb-4 uppercase">
+                🚗 FREE Instant Vehicle Valuation
+              </h2>
+              
+              <p className="text-white text-lg sm:text-xl mb-6 max-w-2xl mx-auto">
+                Get your vehicle's <span className="text-green-400 font-bold">current market value</span> in 30 seconds! 
+                Plus receive exclusive trade-in bonuses worth up to <span className="text-yellow-400 font-bold">$2,000 extra!</span>
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-green-400">30 Sec</div>
+                  <div className="text-white text-sm">Instant Results</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-yellow-400">$2,000</div>
+                  <div className="text-white text-sm">Bonus Value</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-blue-400">100%</div>
+                  <div className="text-white text-sm">Free Service</div>
+                </div>
+              </div>
+              
+              <Button
+                className="bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 hover:from-green-700 hover:via-green-800 hover:to-emerald-700 text-white font-comic font-black text-xl py-4 px-8 rounded-xl shadow-2xl hover:shadow-green-600/50 hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <DollarSign className="w-6 h-6 mr-3 relative z-10" />
+                <span className="relative z-10">GET MY FREE VALUATION NOW!</span>
+              </Button>
+              
+              <p className="text-green-400 text-sm mt-3 font-semibold">
+                ⚡ Limited Time: Extra $500 Trade-In Bonus This Week Only!
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Real-Time Inventory Scarcity */}
+        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
+          <div className="bg-gradient-to-r from-red-600/20 via-orange-600/15 to-red-600/20 backdrop-blur-xl border-2 border-red-400/30 rounded-3xl p-6 sm:p-8 max-w-5xl mx-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-400/10 via-transparent to-orange-400/10 animate-pulse"></div>
+            
+            <div className="relative z-10">
+              <div className="text-center mb-6">
+                <h3 className="font-comic text-2xl sm:text-3xl font-black text-red-400 mb-2 uppercase">
+                  🔥 HOT INVENTORY ALERT!
+                </h3>
+                <p className="text-white text-lg">
+                  These popular models are flying off our lot - <span className="text-yellow-400 font-bold">Act Fast!</span>
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-red-400/20">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white font-bold">2025 GMC Sierra</span>
+                    <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">Only 2 Left!</span>
+                  </div>
+                  <div className="text-red-400 text-sm">47 people viewed today</div>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-red-500 h-2 rounded-full w-4/5"></div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-orange-400/20">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white font-bold">2025 Cadillac XT4</span>
+                    <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full">3 Available</span>
+                  </div>
+                  <div className="text-orange-400 text-sm">32 people viewed today</div>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-orange-500 h-2 rounded-full w-3/5"></div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-yellow-400/20">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white font-bold">2025 Buick Encore</span>
+                    <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full">5 Available</span>
+                  </div>
+                  <div className="text-yellow-400 text-sm">28 people viewed today</div>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-yellow-500 h-2 rounded-full w-2/5"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center mt-6">
+                <Button
+                  className="bg-gradient-to-r from-red-600 via-red-700 to-orange-600 hover:from-red-700 hover:via-red-800 hover:to-orange-700 text-white font-comic font-black text-lg py-3 px-6 rounded-xl shadow-2xl hover:shadow-red-600/50 hover:scale-105 active:scale-95 transition-all duration-300"
+                >
+                  🚨 RESERVE YOURS NOW - BEFORE THEY'RE GONE!
+                </Button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Enhanced Service Highlights with Social Proof */}
+        <motion.div variants={fadeInUp} className="mb-10 sm:mb-12">
+          <h2 className="font-comic text-3xl sm:text-4xl md:text-5xl font-black text-orange-400 mb-6 text-center">
             LEGENDARY SERVICE
           </h2>
-          <div className="bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-crusaderYellow/30 max-w-6xl mx-auto">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white font-bold leading-relaxed">
-              <span className="text-crusaderYellow">🦸‍♂️ VIP Treatment</span> • 
-              <span className="text-blue-300">🚗 Zero-Pressure Experience</span> • 
-              <span className="text-crusaderOrange">⚡ Lightning-Fast Approvals</span>
-            </p>
-            <p className="text-2xl sm:text-3xl md:text-4xl text-yellow-300 font-black mt-4 text-outline-black-lg">
-              Your Trusted Regina Auto Superhero Saves The Day!
-            </p>
+          <div className="bg-gradient-to-r from-black/60 via-black/40 to-black/60 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-yellow-400/30 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-lg sm:text-xl text-white font-bold leading-relaxed mb-4">
+                  <span className="text-yellow-400">🦸‍♂️ VIP Treatment</span> • 
+                  <span className="text-blue-300">🚗 Zero-Pressure Experience</span> • 
+                  <span className="text-orange-400">⚡ Lightning-Fast Approvals</span>
+                </p>
+                <p className="text-2xl sm:text-3xl text-yellow-300 font-black">
+                  Your Trusted Regina Auto Superhero Saves The Day!
+                </p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <h4 className="text-yellow-400 font-bold text-lg mb-4">🌟 Recent Success Stories</h4>
+                <div className="space-y-3 text-sm text-white">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span>"Saved $7,200 on my new Sierra!" - Mike R.</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                    <span>"Approved in 15 minutes!" - Sarah K.</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                    <span>"Best car buying experience ever!" - David L.</span>
+                  </div>
+                </div>
+                <div className="mt-4 text-center">
+                  <span className="text-yellow-400 font-bold">⭐⭐⭐⭐⭐ 4.9/5 Rating</span>
+                  <div className="text-white/60 text-xs">Based on 1,247 reviews</div>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 

@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 const HeroSection = lazy(() => import('@/components/sections/HeroSection'));
 const TrustBarSection = lazy(() => import('@/components/sections/TrustBarSection'));
 const WhyShopSection = lazy(() => import('@/components/sections/WhyShopSection'));
+const SmartLeadCaptureSection = lazy(() => import('@/components/sections/SmartLeadCaptureSection'));
 const AboveTheFoldCTASection = lazy(() => import('@/components/sections/AboveTheFoldCTASection'));
 
 const LoadingFallback = () => (
@@ -48,6 +49,7 @@ const HomePage = () => {
             fadeInUp={fadeInUp}
             staggerContainer={staggerContainer}
           />
+          <SmartLeadCaptureSection />
           <AboveTheFoldCTASection />
         </div>
       </Suspense>
