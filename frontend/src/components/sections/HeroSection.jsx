@@ -78,7 +78,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 bg-crusaderYellow/20 rounded-full blur-xl"
+          className="absolute top-20 left-10 w-32 h-32 bg-yellow-400/20 rounded-full blur-xl"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -87,7 +87,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-32 right-16 w-40 h-40 bg-crusaderOrange/20 rounded-full blur-xl"
+          className="absolute bottom-32 right-16 w-40 h-40 bg-orange-500/20 rounded-full blur-xl"
           animate={{ 
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.3, 0.2],
@@ -96,7 +96,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/4 w-24 h-24 bg-crusaderRed/15 rounded-full blur-xl"
+          className="absolute top-1/2 left-1/4 w-24 h-24 bg-red-600/15 rounded-full blur-xl"
           animate={{ 
             scale: [1, 1.1, 1],
             opacity: [0.1, 0.3, 0.1],
@@ -129,10 +129,10 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
             id="hero-title"
             className="font-comic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-tight relative"
           >
-            <span className="block text-crusaderYellow text-outline-black-lg drop-shadow-2xl">
+            <span className="block text-yellow-400 drop-shadow-2xl" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(255,193,7,0.3)' }}>
               GMC, BUICK & CADILLAC
             </span>
-            <span className="block text-crusaderOrange text-outline-black-lg drop-shadow-2xl mt-2">
+            <span className="block text-orange-400 drop-shadow-2xl mt-2" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(255,152,0,0.3)' }}>
               NO PRESSURE. JUST SAVINGS!
             </span>
           </h1>
@@ -142,11 +142,11 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
         <motion.div variants={imageVariants} className="mb-10 sm:mb-12">
           <div className="relative max-w-3xl mx-auto group">
             {/* Multi-layered glow effects */}
-            <div className="absolute inset-0 bg-gradient-to-r from-crusaderYellow/40 via-crusaderOrange/30 to-crusaderRed/40 rounded-3xl blur-3xl scale-110 opacity-70 group-hover:opacity-90 transition-all duration-700 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/40 via-orange-500/30 to-red-600/40 rounded-3xl blur-3xl scale-110 opacity-70 group-hover:opacity-90 transition-all duration-700 animate-pulse"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-red-600/25 rounded-3xl blur-xl scale-105 opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
             
             {/* Main image with enhanced effects */}
-            <div className="relative overflow-hidden rounded-3xl border-4 border-crusaderYellow/50 group-hover:border-crusaderYellow/80 transition-all duration-500 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl border-4 border-yellow-400/50 group-hover:border-yellow-400/80 transition-all duration-500 shadow-2xl">
               <img 
                 src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250615_200233.png"
                 alt="Troy Nordyke - Capital Crusader, your Regina auto superhero with business card"
