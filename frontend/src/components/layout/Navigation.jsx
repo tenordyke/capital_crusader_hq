@@ -90,7 +90,7 @@ const Navigation = () => {
               </div>
 
               {/* Center Title - Middle Third */}
-              <div className="flex items-center justify-center hidden sm:block">
+              <div className="hidden sm:flex items-center justify-center">
                 <Link 
                   to="/" 
                   className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap text-center ${
