@@ -91,12 +91,12 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Center Section - Title + Navigation Links */}
-              <div className="flex-1 flex justify-center items-center gap-8 px-4 hidden sm:flex">
-                {/* Title */}
+              {/* Center Section - Title on Left, Nav Links Evenly Spaced */}
+              <div className="flex-1 flex items-center px-4 hidden sm:flex">
+                {/* Title on Left */}
                 <Link 
                   to="/" 
-                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap ${
+                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap mr-8 ${
                     isScrolled 
                       ? 'text-lg md:text-xl lg:text-2xl' 
                       : 'text-xl md:text-2xl lg:text-3xl'
@@ -109,8 +109,8 @@ const Navigation = () => {
                   THE CAPITAL CRUSADER
                 </Link>
 
-                {/* Navigation Links - Beside Title */}
-                <div className="flex items-center gap-6">
+                {/* Navigation Links - Evenly Spaced */}
+                <div className="flex-1 flex justify-evenly items-center">
                   {navItems.map((item) => (
                     <motion.div key={item.name} className="relative">
                       <Link
@@ -121,7 +121,7 @@ const Navigation = () => {
                             : 'text-white hover:text-yellow-300'
                         }`}
                       >
-                        {item.name}
+                        {item.name === 'About Troy' ? 'About' : item.name}
                       </Link>
                       {/* Active indicator */}
                       {isActive(item.path) && (
