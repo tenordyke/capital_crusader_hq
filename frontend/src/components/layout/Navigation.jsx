@@ -19,9 +19,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Offers', path: '/offers' },
     { name: 'About Troy', path: '/about' },
-    { name: 'Videos', path: '/videos' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -83,20 +81,35 @@ const Navigation = () => {
               {/* Right Section */}
               <div className="flex items-center gap-4">
                 
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center gap-6">
+                {/* Enhanced Desktop Navigation */}
+                <div className="hidden lg:flex items-center gap-8">
                   {navItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`font-medium transition-all duration-300 hover:scale-105 ${
-                        isActive(item.path)
-                          ? 'text-yellow-400 font-bold'
-                          : 'text-white hover:text-yellow-300'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    <motion.div key={item.name} className="relative">
+                      <Link
+                        to={item.path}
+                        className={`font-medium text-lg transition-all duration-300 hover:scale-105 relative z-10 ${
+                          isActive(item.path)
+                            ? 'text-yellow-400 font-bold'
+                            : 'text-white hover:text-yellow-300'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                      {/* Active indicator */}
+                      {isActive(item.path) && (
+                        <motion.div
+                          layoutId="activeTab"
+                          className="absolute -bottom-2 left-0 right-0 h-0.5 bg-yellow-400 rounded-full"
+                          initial={false}
+                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        />
+                      )}
+                      {/* Hover glow effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-yellow-400/10 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 -z-10"
+                        whileHover={{ scale: 1.1 }}
+                      />
+                    </motion.div>
                   ))}
                 </div>
 
