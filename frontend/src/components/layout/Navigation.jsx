@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Clean, Professional Navigation */}
+      {/* Redesigned Navigation with Comic Book Logo */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -44,46 +44,46 @@ const Navigation = () => {
             }`}
             style={{
               boxShadow: '0 20px 40px rgba(220,38,127,0.2), inset 0 1px 0 rgba(255,255,255,0.1)',
-              overflow: 'visible' // Allow logo to break out
+              overflow: 'visible'
             }}
           >
-            <div className={`grid grid-cols-3 items-center px-6 ${
-              isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-24'
+            <div className={`flex items-center justify-between px-6 ${
+              isScrolled ? 'h-16 sm:h-18' : 'h-18 sm:h-20'
             }`}>
               
-              {/* Logo Section - Left Third - Comic Book Breakout Effect */}
-              <div className="flex items-center justify-start relative">
+              {/* Logo Section with Comic Book Effect */}
+              <div className="flex items-center relative">
                 <Link to="/" className="flex items-center group relative z-20">
                   <motion.img 
                     src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250616_072055.png"
                     alt="The Capital Crusader Logo"
                     className={`w-auto object-contain filter brightness-125 contrast-110 transition-all duration-300 ${
                       isScrolled 
-                        ? 'h-24 sm:h-28' // Comic book size when scrolled
-                        : 'h-28 sm:h-32 md:h-36' // Full comic book effect when not scrolled
+                        ? 'h-20 sm:h-24' // Comic book size when scrolled
+                        : 'h-24 sm:h-28' // Full comic book effect when not scrolled
                     }`}
                     style={{
                       filter: 'brightness(125%) contrast(110%) drop-shadow(0 6px 12px rgba(0,0,0,0.4))',
-                      marginTop: '-8px', // Pull up slightly for head to break out
-                      marginBottom: '-8px' // Allow bottom to extend below
+                      marginTop: '-4px',
+                      marginBottom: '-4px'
                     }}
                     whileHover={{ 
-                      scale: 1.08,
-                      rotate: 2,
+                      scale: 1.05,
+                      rotate: 1,
                       filter: 'brightness(135%) contrast(120%) drop-shadow(0 8px 16px rgba(255,193,7,0.5))'
                     }}
                     transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
                   />
                   
-                  {/* Comic book style glow effect */}
+                  {/* Comic book glow effect */}
                   <motion.div
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     animate={{
                       scale: [1, 1.1, 1],
-                      opacity: [0.3, 0.6, 0.3]
+                      opacity: [0.2, 0.4, 0.2]
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
@@ -91,25 +91,28 @@ const Navigation = () => {
                 </Link>
               </div>
 
-              {/* Center Title - Middle Third */}
-              <div className="hidden sm:flex items-center justify-center">
+              {/* Center Title - Properly Positioned */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:block">
                 <Link 
                   to="/" 
-                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap text-center ${
+                  className={`font-comic text-yellow-400 font-bold hover:text-yellow-300 transition-colors duration-300 whitespace-nowrap ${
                     isScrolled 
-                      ? 'text-lg md:text-xl lg:text-2xl' 
-                      : 'text-xl md:text-2xl lg:text-3xl'
+                      ? 'text-xl md:text-2xl lg:text-3xl' 
+                      : 'text-2xl md:text-3xl lg:text-4xl'
                   }`}
-                  style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+                  style={{ 
+                    textShadow: '3px 3px 6px rgba(0,0,0,0.8)',
+                    letterSpacing: '0.05em'
+                  }}
                 >
                   THE CAPITAL CRUSADER
                 </Link>
               </div>
 
-              {/* Right Section - Right Third */}
-              <div className="flex items-center justify-end gap-4">
+              {/* Right Section - Navigation & Call Button */}
+              <div className="flex items-center gap-6">
                 
-                {/* Enhanced Desktop Navigation */}
+                {/* Desktop Navigation Links */}
                 <div className="hidden lg:flex items-center gap-8">
                   {navItems.map((item) => (
                     <motion.div key={item.name} className="relative">
@@ -146,14 +149,14 @@ const Navigation = () => {
                   href="tel:+1-306-331-4802"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-bold shadow-lg relative overflow-hidden group"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold shadow-lg relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, rgba(255,193,7,0.9) 0%, rgba(255,152,0,0.9) 100%)',
                     color: '#7F1D1D'
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
+                  <Phone className="w-5 h-5 relative z-10" />
                   <span className="hidden sm:inline relative z-10">Call Troy</span>
                 </motion.a>
 
@@ -191,7 +194,7 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Clean Mobile Navigation */}
+            {/* Mobile Navigation */}
             <AnimatePresence>
               {isOpen && (
                 <motion.div
@@ -202,6 +205,17 @@ const Navigation = () => {
                   className="lg:hidden border-t border-white/20 bg-black/20 backdrop-blur-xl"
                 >
                   <div className="p-4 space-y-2">
+                    {/* Mobile Title */}
+                    <div className="text-center mb-4 sm:hidden">
+                      <Link 
+                        to="/" 
+                        className="font-comic text-yellow-400 font-bold text-xl"
+                        style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+                      >
+                        THE CAPITAL CRUSADER
+                      </Link>
+                    </div>
+                    
                     {navItems.map((item) => (
                       <Link
                         key={item.name}
@@ -237,7 +251,7 @@ const Navigation = () => {
       </motion.nav>
       
       {/* Spacer for fixed navigation */}
-      <div className={`${isScrolled ? 'h-24' : 'h-32'} transition-all duration-300`} />
+      <div className={`${isScrolled ? 'h-20' : 'h-24'} transition-all duration-300`} />
     </>
   );
 };
