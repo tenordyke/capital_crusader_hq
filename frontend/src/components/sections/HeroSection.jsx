@@ -125,7 +125,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
       <div className="max-w-7xl mx-auto text-center relative z-10">
         
         {/* Refined Premium Badge Section */}
-        <motion.div variants={heroVariants} className="mb-16 sm:mb-20">
+        <motion.div variants={heroVariants} className="mb-12 sm:mb-16">
           <div className="flex flex-col sm:flex-row items-center gap-8 justify-center">
             {/* Premium Offer Badge */}
             <motion.div 
@@ -158,7 +158,7 @@ const HeroSection = ({ fadeInUp, staggerContainer }) => {
         </motion.div>
 
         {/* Refined Typography Hierarchy */}
-        <motion.div variants={titleVariants} className="mb-12 sm:mb-16">
+        <motion.div variants={titleVariants} className="mb-10 sm:mb-12">
           <h1 
             id="hero-title"
             className="font-comic text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] relative"
