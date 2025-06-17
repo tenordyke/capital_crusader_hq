@@ -49,16 +49,39 @@ const Navigation = () => {
             <div className="grid grid-cols-3 items-center h-16 sm:h-20 px-6">
               
               {/* Logo Section - Left Third */}
-              <div className="flex items-center justify-start">
-                <Link to="/" className="flex items-center group">
+              <div className="flex items-center justify-start relative">
+                <Link to="/" className="flex items-center group relative z-20">
                   <motion.img 
                     src="https://tjoyajajskeijhujoczy.supabase.co/storage/v1/object/public/images//Untitled_20250616_072055.png"
                     alt="The Capital Crusader Logo"
                     className={`w-auto object-contain filter brightness-125 contrast-110 transition-all duration-300 ${
-                      isScrolled ? 'h-12 sm:h-14' : 'h-14 sm:h-16'
+                      isScrolled 
+                        ? 'h-20 sm:h-24' // Oversized even when scrolled
+                        : 'h-24 sm:h-28 md:h-32' // Extra oversized when not scrolled
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
+                    style={{
+                      filter: 'brightness(125%) contrast(110%) drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
+                    }}
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: 2,
+                      filter: 'brightness(135%) contrast(120%) drop-shadow(0 6px 12px rgba(255,193,7,0.4))'
+                    }}
+                    transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+                  />
+                  
+                  {/* Comic book style glow effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                   />
                 </Link>
               </div>
